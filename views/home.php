@@ -1,4 +1,5 @@
 <?php
+    $title = 'Home';
     // If the user is not logged in, redirect to login view
     require_once('./php/config.php');
 
