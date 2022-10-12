@@ -1,6 +1,4 @@
-# Red Pepper
-Red Pepper is a simple bare-bones PHP framework developed by Eun Sik Kim.
-
+# GTRI: IT Web Management Application
 ## Installation
 ### Pre-requisites
 - PHP 8.1.10
