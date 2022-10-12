@@ -1,4 +1,5 @@
 <?php
+    $title = 'Login';
     //  If the user is logged in, redirect to home view
     require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
 
