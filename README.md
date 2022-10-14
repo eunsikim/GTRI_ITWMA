@@ -12,6 +12,8 @@
 3. After composer has done installing the packages, create a environmental variables files called ".env" (no name, just ".env").
 4. Copy and paste the contents from .env.example into the newly create .env file.
 5. Modify the required values in the .env file.
+6. Create a MySQL database and add the name of the database in the .env file (DB_NAME=...)
+7. Add a users table in that database (use query below)
 
 ### Setting up the users table
 As of 10/11/2022, this is the query for creating the users table:
