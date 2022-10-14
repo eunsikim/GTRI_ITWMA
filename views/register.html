@@ -1,63 +1,67 @@
-<!DOCTYPE html>
-<html>
-    {% include '/templates/header.html' with {'title' : title} %}
-    <body>
-        {% include '/components/navbar.html' with {'isLogged' : isLogged} %}
-        <div class="container">
-            <div class="card-body py-5 px-md-5">
-                
-                {% if error == 'none' %}
-                    <div class="alert alert-success" role="alert">
-                        Success!
-                    </div>
-                {% elseif error == '1'%}
-                    <div class="alert alert-danger" role="alert">
-                        Some inputs were empty
-                    </div>
-                {% elseif error == '2' %}
-                    <div class="alert alert-danger" role="alert">
-                        Email already in use
-                    </div>
-                {% elseif error == '3' %}
-                    <div class="alert alert-danger" role="alert">
-                        Statement fail
-                    </div>
-                {% endif %}
-
-                <form action="register" method="POST">
-                    <!-- 2 column grid layout with text inputs for the first and last names -->
-                    <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                        <input name="firstName" type="text" class="form-control" />
-                        <label class="form-label" for="form3Example1">First name</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                        <input name="lastName" type="text" class="form-control" />
-                        <label class="form-label" for="form3Example2">Last name</label>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                    <input name="email" type="email" class="form-control" />
-                    <label class="form-label" for="form3Example3">Email address</label>
-                    </div>
-
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                    <input name="password" type="password" class="form-control" />
-                    <label class="form-label" for="form3Example4">Password</label>
-                    </div>
+{% extends '/templates/twoColumnTemplate.html' %}
 
 
-                    <!-- Submit button -->
-                    <input name="register" value="register" type="submit" class="btn btn-primary btn-block mb-4">
-                </form>
-            </div>
+{% block column1 %}
+    {% include '/components/sideLogo.html'%}   
+{% endblock %}
+
+
+{% block column2 %}
+    <div class="col">
+        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+            
+            {% if error == 'none' %}
+                <div class="alert alert-success" role="alert">
+                    Success!
+                </div>
+            {% elseif error == '1'%}
+                <div class="alert alert-danger" role="alert">
+                    Some inputs were empty
+                </div>
+            {% elseif error == '2' %}
+                <div class="alert alert-danger" role="alert">
+                    Email already in use
+                </div>
+            {% elseif error == '3' %}
+                <div class="alert alert-danger" role="alert">
+                    Statement fail
+                </div>
+            {% endif %}
+
+            <form action="register" method="POST">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                    <input name="firstName" type="text" class="form-control" />
+                    <label class="form-label" for="form3Example1">First name</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                    <input name="lastName" type="text" class="form-control" />
+                    <label class="form-label" for="form3Example2">Last name</label>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                <input name="email" type="email" class="form-control" />
+                <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                <input name="password" type="password" class="form-control" />
+                <label class="form-label" for="form3Example4">Password</label>
+                </div>
+
+
+                <!-- Submit button -->
+                <input name="register" value="register" type="submit" class="btn btn-primary btn-block mb-4">
+            </form>
         </div>
-    </body>
-</html>
+    </div>
+{% endblock %}

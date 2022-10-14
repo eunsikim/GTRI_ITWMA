@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-    {% include '/templates/header.html' with {'title' : title} %}
-    <body>
-        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
-        <div class="container">
-            <h1>Welcome {{userName}} </h1>
-        </div>
-    </body>
-</html>
+{% extends '/templates/mainTemplate.html' %}
+
+{% block content %}
+    <div class="container-fluid" style="padding-left:240px;">
+        <h1>Welcome {{userName}} </h1>
+    </div>
+{% endblock %}
