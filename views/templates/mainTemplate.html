@@ -6,9 +6,8 @@
     </head>
     <body>
         <div class="container-fluid p-0">
-
-            {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
             {% include '/components/sidenav.html' %}
+            {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
             {% block content %}{% endblock %}
             
         </div>

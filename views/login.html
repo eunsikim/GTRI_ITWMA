@@ -9,6 +9,7 @@
 {% block column2 %}
     {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
     <div class="col">
+        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             <h1>Log in</h1>
 
