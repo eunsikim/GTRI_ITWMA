@@ -1,0 +1,104 @@
+
+/* .txt-Login{ */
+    .txt-Login.variantOne{
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        max-width: 600px;
+    }
+
+    .txt-Login.variantTwo{
+        font-family: 'Montserrat', sans-serif;
+        color: "#18345E";
+        font-weight: 700;
+        text-align: left;
+    }
+
+    .txt-Login.buttonLogin{
+        font-family: 'Montserrat', sans-serif;
+        color: "#18345E";
+        font-weight: 700;
+        text-align: center;
+        font-size: small;
+    }
+
+    .txt-Login.bottomText{
+        font-family: 'Montserrat', sans-serif;
+        color: "#18345E";
+        font-weight: 300;
+        font-size: large;
+    }
+
+    .txt-Login.signUpLink{
+        font-family: 'Montserrat', sans-serif;
+        color: #22C1DC;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .txt-Login.signUpLink:link{
+        color: #22C1DC;
+        text-decoration: none;
+    }
+    .txt-Login.signUpLink:visited{
+        color: #22C1DC;
+        text-decoration: none;
+    }
+    .txt-Login.signUpLink:hover{
+        color: #22C1DC;
+        text-decoration: none;
+    }
+    .txt-Login.signUpLink:active{
+        color: #22C1DC;
+        text-decoration: none;
+    }
+
+    .txt-Login.inputLabel{
+        font-family: 'Montserrat Alternates', sans-serif;
+        color: "#18345E";
+        font-weight: 400;
+        text-align: left;
+    }
+/* } */
+
+
+.bg-login{
+    background-color: #18345e
+}
+
+.button-login{
+    background: #F0AB20;
+	/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06); */
+	border-color: #F0AB20;
+	border-radius: 5px;
+	width: 320px;
+	height: 50px;
+	color:#18345E;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+}
+
+.input-login{
+    background-color: #e5e5e5;
+    border:0;
+    border-radius: 10px;
+    min-height:45px; 
+    min-width: 300px
+}
+
+.test{
+    min-width: 100%
+}
+
+.sidenav{
+    z-index: 1035;
+}

@@ -1,0 +1,18 @@
+<span class="nav-item me-3 ">{{userName}}</span>
+
+<span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
+
+<div class="nav-item dropdown-center me-3">
+    <!-- <span class="navbar-toggler-icon" style="font-size:2em;"></span> -->
+    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+            <form action="logout" method="POST">
+                <input type="submit" class="btn" name="logout" value="logout">
+            </form>
+        </li>
+    </ul>
+</div>

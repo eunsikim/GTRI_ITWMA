@@ -1,0 +1,9 @@
+<div class="navbar navbar-expand-lg bg-light" style="padding-left:240px">
+    <div class="ms-auto d-flex align-items-center">
+        {% if isLogged %}
+            {% include '/components/navbar/user.html' with {'userName' : userName} %}
+        {% else %}
+            {% include '/components/navbar/login.html'%}
+        {% endif %}
+    </div>
+</div>

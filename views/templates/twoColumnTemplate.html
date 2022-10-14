@@ -1,0 +1,15 @@
+<!-- Two Column 50/50 Template -->
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/templates/header.html' with {'title' : title} %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                {% block column1 %}{% endblock %}
+                {% block column2 %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

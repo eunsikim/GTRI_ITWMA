@@ -1,0 +1,49 @@
+{% extends '/templates/twoColumnTemplate.html' %}
+
+
+{% block column1 %}
+    {% include '/components/sideLogo.html'%}   
+{% endblock %}
+
+
+{% block column2 %}
+    {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
+    <div class="col">
+        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+            <h1>Log in</h1>
+
+            <div>
+                <form action="login" method="POST">
+                    {% if error == '1'%}
+                        <div class="alert alert-danger" role="alert">
+                            Email address or Password empty
+                        </div>
+                    {% elseif error == '2' %}
+                        <div class="alert alert-danger" role="alert">
+                            Wrong email or password
+                        </div>
+                    {% endif %}
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form2Example1" class="form-control" name="user_email" />
+                        <label class="form-label" for="form2Example1">Email address</label>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form2Example2" class="form-control" name="user_password" />
+                        <label class="form-label" for="form2Example2">Password</label>
+                    </div>
+    
+                    <div class="text-center">
+                        <p>Not a member? <a href="/register">Register</a></p>
+                    </div>
+    
+                    <!-- Submit button -->
+                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="login">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+            
+{% endblock %}

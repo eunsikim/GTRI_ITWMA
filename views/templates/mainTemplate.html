@@ -1,0 +1,16 @@
+<!-- Main template with sidenav and navbar -->
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/templates/header.html' with {'title' : title} %}
+    </head>
+    <body>
+        <div class="container-fluid p-0">
+
+            {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+            {% include '/components/sidenav.html' %}
+            {% block content %}{% endblock %}
+            
+        </div>
+    </body>
+</html>
