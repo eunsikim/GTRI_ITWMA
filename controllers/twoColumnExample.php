@@ -15,7 +15,6 @@
 
     echo $twig->render('twoColumnExample.html', [
         'title' => 'Two Column',
-        'userName' => $_SESSION['user'],
         'isLogged' => isLogged()
         ]) 
 ?>
