@@ -1,33 +1,21 @@
-<?php
-    $title = 'Login';
-    //  If the user is logged in, redirect to home view
-    require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
-
-    if(isLogged()){
-        header('Location: /');
-    }
-?>
 <!DOCTYPE html>
 <html>
-    <?php require_once('./views/templates/header.php'); ?>
+    {% include '/templates/header.html' with {'title' : title} %}
     <body>
-        <?php require($_SERVER['DOCUMENT_ROOT'].'/views/templates/navbarHorizontal.php') ?>
+        {% include '/components/navbar.html' with {'isLogged' : isLogged} %}
         <div class="container">
             <h1>Log in</h1>
 
             <form action="login" method="POST">
-                <?php 
-                    if(isset($_GET['error'])){
-                        echo '<div class="alert alert-danger" role="alert">';
-                        if($_GET['error'] == '1'){
-                            echo 'Email address or Password empty';
-                        }
-                        elseif($_GET['error'] == '2'){
-                            echo 'Wrong email or password';
-                        }
-                        echo '</div>';
-                    }
-                ?>
+                {% if error == '1'%}
+                    <div class="alert alert-danger" role="alert">
+                        Email address or Password empty
+                    </div>
+                {% elseif error == '2' %}
+                    <div class="alert alert-danger" role="alert">
+                        Wrong email or password
+                    </div>
+                {% endif %}
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input type="email" id="form2Example1" class="form-control" name="user_email" />

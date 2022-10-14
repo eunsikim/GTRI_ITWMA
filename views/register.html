@@ -1,39 +1,29 @@
-<?php
-    $title = 'Register';
-    //  If the user is logged in, redirect to home view
-    require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
-
-    if(isLogged()){
-        header('Location: /');
-    }
-?>
 <!DOCTYPE html>
 <html>
-    <?php require_once('./views/templates/header.php'); ?>
+    {% include '/templates/header.html' with {'title' : title} %}
     <body>
-        <?php require($_SERVER['DOCUMENT_ROOT'].'/views/templates/navbarHorizontal.php') ?>
+        {% include '/components/navbar.html' with {'isLogged' : isLogged} %}
         <div class="container">
             <div class="card-body py-5 px-md-5">
-                <?php 
-                    if(isset($_GET['error']) && $_GET['error'] == 'none'){
-                        echo '<div class="alert alert-success" role="alert">';
-                        echo 'Success!';
-                        echo '</div>';
-                    }
-                    else if(isset($_GET['error'])){
-                        echo '<div class="alert alert-danger" role="alert">';
-                        if($_GET['error'] == '1'){
-                            echo 'Some inputs were empty';
-                        }
-                        elseif($_GET['error'] == '2'){
-                            echo 'Email already in use';
-                        }
-                        elseif($_GET['error'] == '2'){
-                            echo 'Statement fail';
-                        }
-                        echo '</div>';
-                    }
-                ?>
+                
+                {% if error == 'none' %}
+                    <div class="alert alert-success" role="alert">
+                        Success!
+                    </div>
+                {% elseif error == '1'%}
+                    <div class="alert alert-danger" role="alert">
+                        Some inputs were empty
+                    </div>
+                {% elseif error == '2' %}
+                    <div class="alert alert-danger" role="alert">
+                        Email already in use
+                    </div>
+                {% elseif error == '3' %}
+                    <div class="alert alert-danger" role="alert">
+                        Statement fail
+                    </div>
+                {% endif %}
+
                 <form action="register" method="POST">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
