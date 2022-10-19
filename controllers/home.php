@@ -16,6 +16,7 @@
     echo $twig->render('home.html', [
         'title' => 'Home',
         'userName' => $_SESSION['user'],
-        'isLogged' => isLogged()
+        'isLogged' => isLogged(),
+        'admin' => $_ENV['USER_TYPE']
         ]) 
 ?>

@@ -45,6 +45,6 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
         
         mysqli_stmt_close($stmt);
         header('Location: register?error=none');
-            exit();
+        exit();
     }
 }

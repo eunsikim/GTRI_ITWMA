@@ -22,6 +22,7 @@ if(isset($_REQUEST['login']) && $_REQUEST['login'] == 'login'){
     if($row !== false){
         $_SESSION['logged_in'] = true;
         $_SESSION['user'] = $row['firstName'];
+        $_SESSION['role'] = 1;
         header('Location: /');
         exit();
     }
