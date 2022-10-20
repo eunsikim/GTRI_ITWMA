@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use Bcrypt\Bcrypt;
 
-if(isset($_POST['register']) && $_POST['register'] == 'register'){
+if(isset($_POST['submit']) && $_POST['submit'] == 'add'){
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
     
@@ -13,12 +13,12 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
     $password = $_POST['password'];
 
     if(emptyInputRegister($firstName, $lastName, $email, $password)){
-        header('Location: register?error=1');
+        header('Location: users?error=2');
         exit();
     }
 
     if(idExists($conn, $email) !== false){
-        header('Location: register?error=2');
+        header('Location: users?error=3');
         exit();
     }
 
@@ -28,7 +28,7 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
 
         //	Check if statement fails
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: login?error=3");
+            header("Location: users?error=4");
             exit();
         }
 
@@ -44,7 +44,7 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
         $res = mysqli_stmt_get_result($stmt);
         
         mysqli_stmt_close($stmt);
-        header('Location: register?error=none');
+        header('Location: users?res=2');
         exit();
     }
 }
