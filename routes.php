@@ -1,7 +1,7 @@
 <?php
 
-require_once("{$_SERVER['DOCUMENT_ROOT']}/router.php");
-require_once('./php/loadDotEnv.php');
+require_once($_SERVER['DOCUMENT_ROOT']."/router.php");
+require_once($_SERVER['DOCUMENT_ROOT'].'/php/loadDotEnv.php');
 //  GET
 // get('/index', './index.php');
 get('/', './controllers/home.php');
@@ -20,6 +20,7 @@ post('/logout', './php/authentication/logout.php');
 post('/register', './php/authentication/register.php');
 post('/edit', './php/users/edit.php');
 post('/remove', './php/users/remove.php');
+post('/add', './php/users/add.php');
 
 // For GET or POST
 // The 404.php which is inside the views folder will be called

@@ -1,0 +1,48 @@
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add a New User</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="add" method="POST">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input id="mod-in-firstName" name="firstName" type="text" class="form-control"/>
+                            <label class="form-label" for="form3Example1">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input id="mod-in-lastName" name="lastName" type="text" class="form-control" value="{{user.lastName}}"/>
+                            <label class="form-label" for="form3Example2">Last name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input id="mod-in-email" name="email" type="email" class="form-control" value="{{user.userID}}" placeholder="{{user.userID}}"/>
+                    <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input name="password" type="password" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                </div>
+
+                <input id="mod-in-id" name="id" value="" type="hidden" class="form-control"/>
+                <input id="mod-in-row" name="row" value="" type="hidden" class="form-control"/>
+                <!-- Submit button -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button name="submit" value="add" type="submit" class="btn btn-primary">Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

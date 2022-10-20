@@ -37,9 +37,15 @@
         $error = $_GET['error'];
     }
 
+    $res = null;
+    if(isset($_GET['res'])){
+        $res = $_GET['res'];
+    }
+
     echo $twig->render('users.html', [
         'title' => 'Home',
         'error' => $error, 
+        'res' => $res, 
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
         'users' => getUsers($conn)

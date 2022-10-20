@@ -37,7 +37,7 @@
 
         mysqli_stmt_close($stmt);
 
-        header('Location: /users?error=n');
+        header('Location: /users?res=1');
         exit();
     }
 
