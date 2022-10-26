@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light " style="padding-left:350px;">
     {% if isLogged %}
-        {% include 'views/components/navbar/user.html' with {'userName' : userName, 'appName': appName} %}
+        {% include 'views/components/navbar/user.html' with {'userName' : userName, 'appName': appName, 'userType': userType} %}
     {% else %}
         {% include 'views/components/navbar/login.html'%}
     {% endif %}

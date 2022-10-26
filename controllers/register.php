@@ -14,7 +14,7 @@
 
     $error = null;
     
-    if(isset($_POST['register']) && $_POST['register'] == 'register'){
+    if(isset($_POST['register']) && $_POST['register'] == 'Register'){
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
         $email = $_POST['email'];
@@ -56,6 +56,7 @@
     echo $_SESSION['TWIG']->render('/views/register.html', [
         'title' => 'Login',
         'error' => $error, 
-        'isLogged' => isLogged()
+        'isLogged' => isLogged(),
+        'appName' => $_ENV['APP_NAME']
         ]) 
 ?>

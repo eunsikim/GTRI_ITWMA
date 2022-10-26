@@ -12,7 +12,7 @@
     $error = null;
 
 
-    if(isset($_POST['login']) && $_POST['login'] == 'login'){
+    if(isset($_POST['login']) && $_POST['login'] == 'Login'){
         $id = $_POST['user_email'];
         $password = $_POST['user_password'];
     
@@ -45,6 +45,7 @@
     echo $_SESSION['TWIG']->render('./views/login.html', [
         'title' => 'Login',
         'error' => $error, 
-        'isLogged' => isLogged()
+        'isLogged' => isLogged(),
+        'appName' => $_ENV['APP_NAME']
         ]) 
 ?>

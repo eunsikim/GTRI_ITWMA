@@ -43,6 +43,7 @@
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
         'users' => getUsers($conn),
-        'appName' => $_ENV['APP_NAME']
+        'appName' => $_ENV['APP_NAME'],
+        'userType' => $_ENV['USER_TYPE']
         ]) 
 ?>
