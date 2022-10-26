@@ -1,5 +1,5 @@
 <?php
-require_once('./php/loadDotEnv.php');
+
 $DB_SERVER = $_ENV['DB_SERVER'];
 $DB_USERNAME = $_ENV['DB_USERNAME'];
 $DB_PASSWORD = $_ENV['DB_PASSWORD'];

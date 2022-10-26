@@ -1,6 +1,7 @@
 <?php
-    $title = 'Login';
     require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
+    // require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    $title = 'Login';
 
     if(isLogged()){
         header('Location: /');
@@ -10,6 +11,9 @@
     if(isset($_GET['error'])){
         $error = $_GET['error'];
     }
+
+
+
 
     echo $_SESSION['TWIG']->render('/views/login.html', [
         'title' => 'Login',
