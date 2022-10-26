@@ -1,14 +1,14 @@
-{% extends '/templates/twoColumnTemplate.html' %}
+{% extends 'views/templates/twoColumnTemplate.html' %}
 
 
 {% block column1 %}
-    {% include '/components/sideLogo.html'%}   
+    {% include 'views/components/sideLogo.html'%}   
 {% endblock %}
 
 
 {% block column2 %}
     <div class="col">
-        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+        {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             
             {% if error == 'none' %}

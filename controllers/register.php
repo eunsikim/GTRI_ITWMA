@@ -1,10 +1,4 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-    $loader = new \Twig\Loader\FilesystemLoader('./views');
-
-    $twig = new \Twig\Environment($loader);
-
     $title = 'Register';
     //  If the user is logged in, redirect to home view
     require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
@@ -18,7 +12,7 @@
         $error = $_GET['error'];
     }
 
-    echo $twig->render('register.html', [
+    echo $_SESSION['TWIG']->render('/views/register.html', [
         'title' => 'Login',
         'error' => $error, 
         'isLogged' => isLogged()

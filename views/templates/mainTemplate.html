@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% include '/templates/header.html' with {'title' : title} %}
+        {% include 'views/templates/header.html' with {'title' : title} %}
     </head>
     <body>
         <div class="container-fluid p-0">
-            {% include '/components/sidenav.html' %}
-            {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+            {% include 'views/components/sidenav.html' %}
+            {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
             {% block content %}{% endblock %}
             
         </div>

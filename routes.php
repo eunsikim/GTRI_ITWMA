@@ -2,6 +2,8 @@
 
 require_once($_SERVER['DOCUMENT_ROOT']."/router.php");
 require_once($_SERVER['DOCUMENT_ROOT'].'/php/loadDotEnv.php');
+
+require_once($_SERVER['DOCUMENT_ROOT']."/apps/appRoutes.php");
 //  GET
 // get('/index', './index.php');
 get('/', './controllers/home.php');
@@ -9,6 +11,7 @@ get('/login', './controllers/login.php');
 get('/register', './controllers/register.php');
 get('/main', './controllers/mainTemplateExample.php');
 get('/twoCol', './controllers/twoColumnExample.php');
+
 
 if(isset($_SESSION['role']) && $_SESSION['role'] == 1){
     get('/users', './controllers/users.php');

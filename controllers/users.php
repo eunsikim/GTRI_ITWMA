@@ -1,10 +1,4 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-    $loader = new \Twig\Loader\FilesystemLoader('./views');
-
-    $twig = new \Twig\Environment($loader);
-
     $title = 'Users';
     // If the user is not logged in, redirect to login view
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
@@ -42,7 +36,7 @@
         $res = $_GET['res'];
     }
 
-    echo $twig->render('users.html', [
+    echo $_SESSION['TWIG']->render('views/users.html', [
         'title' => 'Home',
         'error' => $error, 
         'res' => $res, 

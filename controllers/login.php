@@ -1,10 +1,4 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-    $loader = new \Twig\Loader\FilesystemLoader('./views');
-
-    $twig = new \Twig\Environment($loader);
-
     $title = 'Login';
     require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
 
@@ -17,7 +11,7 @@
         $error = $_GET['error'];
     }
 
-    echo $twig->render('login.html', [
+    echo $_SESSION['TWIG']->render('/views/login.html', [
         'title' => 'Login',
         'error' => $error, 
         'isLogged' => isLogged()
