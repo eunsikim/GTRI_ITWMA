@@ -11,7 +11,7 @@
     <div class="col">
         {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-            <h1>Log in</h1>
+            <h1>Sign In</h1>
 
             <div>
                 <form action="login" method="POST">
@@ -26,21 +26,23 @@
                     {% endif %}
                     <!-- Email input -->
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example1">Email</label>
                         <input type="email" id="form2Example1" class="form-control" name="user_email" />
-                        <label class="form-label" for="form2Example1">Email address</label>
                     </div>
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" name="user_password" />
-                        <label class="form-label" for="form2Example2">Password</label>
-                    </div>
-    
-                    <div class="text-center">
-                        <p>Not a member? <a href="/register">Register</a></p>
+                       <label class="form-label" for="form2Example2">Password</label> 
+                       <input type="password" id="form2Example2" class="form-control" name="user_password" />  
                     </div>
     
                     <!-- Submit button -->
-                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="login">
+                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="Sign In">
+
+                    <!-- Register / Forgot password -->
+                    <div class="text-center">
+                        <a href="/register">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
+                        <a>Forgot Password?</a>
+                    </div>
                 </form>
             </div>
             
