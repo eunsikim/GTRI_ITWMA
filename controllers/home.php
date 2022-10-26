@@ -11,6 +11,7 @@
         'title' => 'Home',
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
-        'admin' => $_ENV['USER_TYPE']
+        'admin' => $_ENV['USER_TYPE'],
+        'appName' => $_ENV['APP_NAME']
         ]) 
 ?>

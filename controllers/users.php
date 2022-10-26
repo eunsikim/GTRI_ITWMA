@@ -42,6 +42,7 @@
         'res' => $res, 
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
-        'users' => getUsers($conn)
+        'users' => getUsers($conn),
+        'appName' => $_ENV['APP_NAME']
         ]) 
 ?>

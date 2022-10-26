@@ -1,9 +1,7 @@
-<div class="navbar navbar-expand-lg bg-light" style="padding-left:240px">
-    <div class="ms-auto d-flex align-items-center">
-        {% if isLogged %}
-            {% include 'views/components/navbar/user.html' with {'userName' : userName} %}
-        {% else %}
-            {% include 'views/components/navbar/login.html'%}
-        {% endif %}
-    </div>
-</div>
+<nav class="navbar navbar-expand-lg bg-light " style="padding-left:350px;">
+    {% if isLogged %}
+        {% include 'views/components/navbar/user.html' with {'userName' : userName, 'appName': appName} %}
+    {% else %}
+        {% include 'views/components/navbar/login.html'%}
+    {% endif %}
+</nav>
