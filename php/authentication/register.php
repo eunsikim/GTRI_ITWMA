@@ -11,6 +11,9 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $firstPet = $_POST['firstPet'];
+    $cityBorn = $_POST['cityBorn'];
+    $graduationYear = $_POST['graduationYear'];
 
     if(emptyInputRegister($firstName, $lastName, $email, $password)){
         header('Location: register?error=1');
@@ -23,7 +26,7 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
     }
 
     else{
-        $sql = 'INSERT INTO users(id, firstName, lastName, userID, password) VALUES (UUID(), ?, ?, ?, ?);';
+        $sql = 'INSERT INTO users(id, firstName, lastName, userID, password, graduationYear, firstPet, cityBorn) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?);';
         $stmt = mysqli_stmt_init($conn);
 
         //	Check if statement fails
@@ -37,7 +40,7 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
 
         $ciphertext = $bcrypt->encrypt($password,$bcrypt_version);
 
-        mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $email, $ciphertext);
+        mysqli_stmt_bind_param($stmt, "ssssssi", $firstName, $lastName, $email, $ciphertext, $graduationYear, $firstPet, $cityBorn);
 
         mysqli_stmt_execute($stmt);
 

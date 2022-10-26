@@ -23,6 +23,10 @@ CREATE TABLE users (
     firstName   VARCHAR(50) NOT NULL,
     lastName    VARCHAR(50) NOT NULL,
     userID      VARCHAR(50) NOT NULL UNIQUE,
-    password    VARCHAR(255) NOT NULL
+    password    VARCHAR(255) NOT NULL,
+    role        ENUM('0','1') NOT NULL DEFAULT '0',
+    graduationYear  INT NOT NULL,
+    firstPet    VARCHAR(50) NOT NULL,
+    cityBorn    VARCHAR(50) NOT NULL,
 )
 ```
