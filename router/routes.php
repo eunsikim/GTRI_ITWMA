@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT']."/router.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/router/router.php");
 
 require_once($_SERVER['DOCUMENT_ROOT']."/apps/appRoutes.php");
 //  GET
@@ -16,9 +16,9 @@ if(isset($_SESSION['role']) && $_SESSION['role'] == 1){
 }
 
 //  POST
-post('/login', './php/authentication/login.php');
-post('/logout', './php/authentication/logout.php');
-post('/register', './php/authentication/register.php');
+post('/login', './controllers/login.php');
+post('/logout', './controllers/login.php');
+post('/register', './controllers/register.php');
 post('/edit', './php/users/edit.php');
 post('/remove', './php/users/remove.php');
 post('/add', './php/users/add.php');

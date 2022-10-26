@@ -1,18 +1,17 @@
 <?php
 require 'vendor/autoload.php';
+require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/register.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
+require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
 use Bcrypt\Bcrypt;
 
 if(isset($_POST['submit']) && $_POST['submit'] == 'add'){
-    require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
-    require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
-    
-
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(emptyInputRegister($firstName, $lastName, $email, $password)){
+    if(emptyInput($firstName, $lastName, $email, $password)){
         header('Location: users?error=2');
         exit();
     }

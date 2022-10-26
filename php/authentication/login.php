@@ -1,41 +1,43 @@
 <?php
+require 'vendor/autoload.php';
+use Bcrypt\Bcrypt;
 
-require_once($_SERVER['DOCUMENT_ROOT']."/php/config.php");
-require($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
-
-if(isset($_REQUEST['login']) && $_REQUEST['login'] == 'login'){
-    
-
-    // $_SESSION['username'] = 'Eun Sik';
-
-    // header('Location: /');
-    $id = $_POST['user_email'];
-    $password = $_POST['user_password'];
-
-    //  Check if inputs are empty
-    if(emptyInputLogin($id, $password)){
-        header('Location: login?error=1');
-        exit();
-    }
-    //  Check if email and password matches
-    $row = loginUser($conn, $id, $password);
-    if($row !== false){
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user'] = $row['firstName'];
-        $_SESSION['role'] = 1;
-        header('Location: /');
-        exit();
-    }
-    else{
-        header('Location: login?error=2');
-        exit();
-    }
-}
-else{
-    echo 'Oh no';
-
-    echo '<pre>';
-    var_dump($_POST);
-    echo '</pre>';
+function emptyInput($id, $password){
+	if(empty($id) || empty($password)){
+		return true;
+	}
+	return false;
 }
 
+function loginUser($conn, $id, $password){
+	$idExists = idExists($conn, $id);
+
+	//	User does not exist
+	if($idExists === false){
+		// header("Location: login?error=3");
+		// exit();
+		return false;
+	}
+
+	$passwordHashed = $idExists['password'];
+
+	$bcrypt = new Bcrypt();
+
+	if($bcrypt->verify($password, $passwordHashed)){
+		$checkedPassword = true;
+	}
+	else{
+		$checkedPassword = false;
+	}
+
+	//	Password does not match
+	if($checkedPassword === false){
+		// header("Location: login?error=4");
+		// exit();
+		return false;
+	}
+	//	SUCCESS
+	else if($checkedPassword === true){
+		return $idExists;
+	}
+}

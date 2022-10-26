@@ -12,5 +12,4 @@ $_SESSION['LOADER'] = new \Twig\Loader\FilesystemLoader($_SERVER['DOCUMENT_ROOT'
 $_SESSION['TWIG'] = new \Twig\Environment($_SESSION['LOADER']);
 
 //Load routers
-require_once('./routes.php');
-require_once('./sampleApp.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/router/routes.php');

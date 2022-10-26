@@ -10,7 +10,7 @@
     {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
     <div class="col">
         {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
-        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height:calc(100vh - 54px)">
             <h1>Log in</h1>
 
             <div>
