@@ -1,64 +1,64 @@
 
 /* .txt-Login{ */
-    .txt-Login.variantOne{
-        font-family: 'Montserrat', sans-serif;
-        color: white;
-        font-weight: 600;
-        text-align: center;
-        max-width: 600px;
-    }
+.txt-Login.variantOne{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    max-width: 600px;
+}
 
-    .txt-Login.variantTwo{
-        font-family: 'Montserrat', sans-serif;
-        color: "#18345E";
-        font-weight: 700;
-        text-align: left;
-    }
+.txt-Login.variantTwo{
+    font-family: 'Montserrat', sans-serif;
+    color: "#18345E";
+    font-weight: 700;
+    text-align: left;
+}
 
-    .txt-Login.buttonLogin{
-        font-family: 'Montserrat', sans-serif;
-        color: "#18345E";
-        font-weight: 700;
-        text-align: center;
-        font-size: small;
-    }
+.txt-Login.buttonLogin{
+    font-family: 'Montserrat', sans-serif;
+    color: "#18345E";
+    font-weight: 700;
+    text-align: center;
+    font-size: small;
+}
 
-    .txt-Login.bottomText{
-        font-family: 'Montserrat', sans-serif;
-        color: "#18345E";
-        font-weight: 300;
-        font-size: large;
-    }
+.txt-Login.bottomText{
+    font-family: 'Montserrat', sans-serif;
+    color: "#18345E";
+    font-weight: 300;
+    font-size: large;
+}
 
-    .txt-Login.signUpLink{
-        font-family: 'Montserrat', sans-serif;
-        color: #22C1DC;
-        font-weight: 700;
-        text-decoration: none;
-    }
-    .txt-Login.signUpLink:link{
-        color: #22C1DC;
-        text-decoration: none;
-    }
-    .txt-Login.signUpLink:visited{
-        color: #22C1DC;
-        text-decoration: none;
-    }
-    .txt-Login.signUpLink:hover{
-        color: #22C1DC;
-        text-decoration: none;
-    }
-    .txt-Login.signUpLink:active{
-        color: #22C1DC;
-        text-decoration: none;
-    }
+.txt-Login.signUpLink{
+    font-family: 'Montserrat', sans-serif;
+    color: #22C1DC;
+    font-weight: 700;
+    text-decoration: none;
+}
+.txt-Login.signUpLink:link{
+    color: #22C1DC;
+    text-decoration: none;
+}
+.txt-Login.signUpLink:visited{
+    color: #22C1DC;
+    text-decoration: none;
+}
+.txt-Login.signUpLink:hover{
+    color: #22C1DC;
+    text-decoration: none;
+}
+.txt-Login.signUpLink:active{
+    color: #22C1DC;
+    text-decoration: none;
+}
 
-    .txt-Login.inputLabel{
-        font-family: 'Montserrat Alternates', sans-serif;
-        color: "#18345E";
-        font-weight: 400;
-        text-align: left;
-    }
+.txt-Login.inputLabel{
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: "#18345E";
+    font-weight: 400;
+    text-align: left;
+}
 /* } */
 
 
@@ -101,4 +101,62 @@
 
 .sidenav{
     z-index: 1035;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.font-Montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.f-weight-300{
+    font-weight: 300;
+}
+.f-weight-400{
+    font-weight: 400;
+}
+.f-weight-600{
+    font-weight: 600;
+}
+.f-weight-700{
+    font-weight: 700;
+}
+
+.em-2{
+    font-size: 2em;
+}
+
+.em-1h{
+    font-size: 1.5em;
+}
+
+.color-white{
+    color: white;
+}
+
+.color-secondary{
+    color: #D9D9D9;
+}
+.color-accent{
+    color: #F0AB20;
+}
+
+.bg-primaryCol{
+    background-color: #18345e;
+}
+.bg-secondaryCol{
+    background-color: #D9D9D9;
+}
+
+.backgroundCol{
+    background-color: #F5F5F5;
 }

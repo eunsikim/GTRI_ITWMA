@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+
+// require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+// $_SESSION['LOADER'] = new \Twig\Loader\FilesystemLoader($_SERVER['DOCUMENT_ROOT']);
+// $_SESSION['TWIG']  = new \Twig\Environment($_SESSION['LOADER'] );
 
 function get($route, $path_to_include){
   if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ route($route, $path_to_include); }  

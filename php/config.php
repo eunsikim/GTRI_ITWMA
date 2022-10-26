@@ -84,7 +84,7 @@ function loginUser($conn, $id, $password){
 }
 
 function isAdmin(){
-	require_once('./php/loadDotEnv.php');
+	
 	if (isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1)
 		return true;
 	else

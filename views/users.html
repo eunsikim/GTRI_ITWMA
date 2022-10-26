@@ -1,7 +1,7 @@
-{% extends '/templates/mainTemplate.html' %}
+{% extends 'views/templates/mainTemplate.html' %}
 
 {% block content %}
-    <div class="container-fluid" style="padding: 50px 50px 0px 290px">
+    <div class="container-fluid" style="padding: 50px 50px 0px 350px">
         {% if error == '1'%}<div class="alert alert-danger" role="alert">Something Went Wrong</div>
         {% elseif error == '2'%}<div class="alert alert-danger" role="alert">Some inputs were empty</div>
         {% elseif error == '3'%}<div class="alert alert-danger" role="alert">Email already in use</div>
@@ -61,7 +61,7 @@
         </table>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
     </div>
-    {% include '/components/modals/users/editModal.html' %}
-    {% include '/components/modals/users/removeModal.html' %}
-    {% include '/components/modals/users/createModal.html' %}
+    {% include 'views/components/modals/users/editModal.html' %}
+    {% include 'views/components/modals/users/removeModal.html' %}
+    {% include 'views/components/modals/users/createModal.html' %}
 {% endblock %}
