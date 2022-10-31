@@ -16,7 +16,7 @@
 7. Add a users table in that database (use query below)
 
 ### Setting up the users table
-As of 10/11/2022, this is the query for creating the users table:
+As of 10/27/2022, this is the query for creating the users table:
 ```
 CREATE TABLE users (
     id          CHAR(36) PRIMARY KEY,
