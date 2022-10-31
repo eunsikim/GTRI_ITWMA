@@ -7,12 +7,9 @@
 
 
 {% block column2 %}
-    {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
     <div class="col">
-        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             <h1>Sign In</h1>
-
             <div>
                 <form action="login" method="POST">
                     {% if error == '1'%}
@@ -36,12 +33,12 @@
                     </div>
     
                     <!-- Submit button -->
-                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="Sign In">
+                    <button type="button" class="btn btn-primary btn-block mb-4 button" name="login">Sign In</button>
 
                     <!-- Register / Forgot password -->
                     <div class="text-center">
                         <a href="/register">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
-                        <a>Forgot Password?</a>
+                        <a href="#">Forgot Password?</a>
                     </div>
                 </form>
             </div>

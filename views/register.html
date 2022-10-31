@@ -8,7 +8,6 @@
 
 {% block column2 %}
     <div class="col">
-        {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             
             {% if error == 'none' %}
@@ -59,7 +58,7 @@
 
                 <!-- Submit button -->
                 <div class="mb-4">
-                <input name="register" value="Sign Up" type="submit" class="btn btn-primary btn-block mb-4">
+                    <button name="register" value="Sign Up" type="button" class="btn btn-primary btn-block mb-4">Sign Up</button>
                 </div>
             </form>
         </div>
