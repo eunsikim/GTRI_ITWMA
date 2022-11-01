@@ -10,7 +10,12 @@
     display: flex;
     align-items: center;
 }
-
+.app-name{
+	color: white;
+	font-family: 'Montserrat';
+	text-align: center;
+	font-size: 35;;
+}
 .input-login{
     background-color: #e5e5e5;
     border:0;
@@ -34,7 +39,6 @@
 	width: 500px;
 	text-align: center;
 	color: #18345E;
-    margin-bottom: 20px;
 }
 .label-login, .label-register{
 	width: 191px;
@@ -52,6 +56,7 @@
 	width: 320px;
 	height: 35px;
 	border-radius: 6px;
+	border-style: none;
 }
 .button-login, .button-register{
 	background: #F0AB20;
@@ -62,7 +67,6 @@
 	height: 35px;
 	color:#18345E;
 	font-weight: bold;
-	margin-bottom: 10px;
     font-size: small;
 }
 .link-login{
