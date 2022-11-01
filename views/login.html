@@ -9,7 +9,7 @@
 {% block column2 %}
     <div class="col">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-            <h1>Sign In</h1>
+            <h1 class="h1-login">Sign In</h1>
             <div>
                 <form action="login" method="POST">
                     {% if error == '1'%}
@@ -23,22 +23,22 @@
                     {% endif %}
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example1">Email</label>
-                        <input type="email" id="form2Example1" class="form-control" name="user_email" />
+                        <label class="form-label label-login" for="form2Example1">Email</label>
+                        <input type="email" id="form2Example1" class="form-control input-login" name="user_email" />
                     </div>
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                       <label class="form-label" for="form2Example2">Password</label> 
-                       <input type="password" id="form2Example2" class="form-control" name="user_password" />  
+                       <label class="form-label label-login" for="form2Example2">Password</label> 
+                       <input type="password" id="form2Example2" class="form-control input-login" name="user_password" />  
                     </div>
     
                     <!-- Submit button -->
-                    <button type="button" class="btn btn-primary btn-block mb-4 button" name="login">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-4 button-login" name="login">Sign In</button>
 
                     <!-- Register / Forgot password -->
                     <div class="text-center">
-                        <a href="/register">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
-                        <a href="#">Forgot Password?</a>
+                        <a href="/register" class="link-login">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
+                        <a href="#" class="link-login">Forgot Password?</a>
                     </div>
                 </form>
             </div>

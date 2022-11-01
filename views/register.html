@@ -28,38 +28,38 @@
                 </div>
             {% endif %}
 
-            <h1>Sign Up</h1>
+            <h1 class="h1-register">Sign Up</h1>
             <form action="register" method="POST">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class=" mb-1 form-outline">
-                        <label class="form-label mb-1" for="form3Example1">First name</label>
-                        <input name="firstName" type="text" class="form-control" />        
+                        <label class="form-label mb-1 label-register" for="form3Example1">First name</label>
+                        <input name="firstNamer" type="text" class="form-control input-register" />        
                 </div>
                 <div class=" mb-1 form-outline">
-                        <label class="form-label mb-1" for="form3Example2">Last name</label>
-                        <input name="lastName" type="text" class="form-control" />
+                        <label class="form-label mb-1 label-register" for="form3Example2">Last name</label>
+                        <input name="lastName" type="text" class="form-control input-register" />
                 </div>
 
                 <!-- Email input -->
                 <div class="form-outline mb-1">
-                    <label class="form-label mb-1" for="form3Example3">Email</label>
-                    <input name="email" type="email" class="form-control" />
+                    <label class="form-label mb-1 label-register" for="form3Example3">Email</label>
+                    <input name="email" type="email" class="form-control input-register" />
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-1">
-                    <label class="form-label mb-1" for="form3Example4">Password</label>
-                    <input name="password" type="password" class="form-control" />
+                    <label class="form-label mb-1 label-register" for="form3Example4">Password</label>
+                    <input name="password" type="password" class="form-control input-register" />
                 </div>
-                <!-- <div class="form-outline mb-1">
-                    <label class="form-label mb-1" for="form3Example4">Confirm Password</label>
-                    <input name="password" type="password" class="form-control" />
-                </div>  -->
+                <div class="form-outline mb-4">
+                    <label class="form-label mb-1 label-register" for="form3Example4">Confirm Password</label>
+                    <input name="password" type="password" class="form-control input-register" />
+                </div> 
 
                 <!-- Submit button -->
-                <div class="mb-4">
-                    <button name="register" value="Register" type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
-                </div>
+
+                    <button name="register" value="Register" type="submit" class="btn btn-primary btn-block mb-4 button-register">Sign Up</button>
+
             </form>
         </div>
     </div>
