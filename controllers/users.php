@@ -1,7 +1,7 @@
 <?php
     $title = 'Users';
     // If the user is not logged in, redirect to login view
-    require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
 
     if(!isLogged()){
         header('Location: login');
@@ -37,13 +37,14 @@
     }
 
     echo $_SESSION['TWIG']->render('views/users.html', [
-        'title' => 'Home',
+        'title' => $title,
         'error' => $error, 
         'res' => $res, 
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
         'users' => getUsers($conn),
         'appName' => $_ENV['APP_NAME'],
-        'userType' => $_ENV['USER_TYPE']
+        'userType' => $_ENV['USER_TYPE'],
+        'admin' => isAdmin()
         ]) 
 ?>

@@ -10,35 +10,35 @@
     <div class="col p-0">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             <div class="d-flex flex-column justify-content-start align-items-start" style="min-width:500px">
-                <h1>Log in</h1>
+                <h1 class="font-Montserrat f-weight-600">Log in</h1>
                 <div class="w-100">
                     <form action="login" method="POST">
                         {% if error == '1'%}
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                                 Email address or Password empty
                             </div>
                         {% elseif error == '2' %}
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                                 Wrong email or password
                             </div>
                         {% endif %}
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <input type="email" id="form2Example1" class="form-control" name="user_email" />
-                            <label class="form-label" for="form2Example1">Email address</label>
+                            <label class="form-label font-Montserrat f-weight-400" for="form2Example1">Email address</label>
                         </div>
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="form2Example2" class="form-control" name="user_password" />
-                            <label class="form-label" for="form2Example2">Password</label>
+                            <label class="form-label font-Montserrat f-weight-400" for="form2Example2">Password</label>
                         </div>
         
-                        <div class="text-center">
+                        <div class="text-center font-Montserrat f-weight-400">
                             <p>Not a member? <a href="/register">Register</a></p>
                         </div>
         
                         <!-- Submit button -->
-                        <input type="submit" class="btn button-accent btn-block mb-4" name="login" value="Login">
+                        <input type="submit" class="btn button-accent btn-block mb-4 font-Montserrat f-weight-400" name="login" value="Login">
                     </form>
                 </div>
             </div>

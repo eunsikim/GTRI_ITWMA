@@ -2,7 +2,7 @@
 
 require_once($_SERVER['DOCUMENT_ROOT']."/router/router.php");
 
-require_once($_SERVER['DOCUMENT_ROOT']."/apps/appRoutes.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/modules/appRoutes.php");
 //  GET
 get('/', './controllers/home.php');
 get('/login', './controllers/login.php');
@@ -11,7 +11,7 @@ get('/main', './controllers/mainTemplateExample.php');
 get('/twoCol', './controllers/twoColumnExample.php');
 
 
-if(isset($_SESSION['role']) && $_SESSION['role'] == 1){
+if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1){
     get('/users', './controllers/users.php');
 }
 
@@ -19,6 +19,8 @@ if(isset($_SESSION['role']) && $_SESSION['role'] == 1){
 post('/login', './controllers/login.php');
 post('/logout', './controllers/login.php');
 post('/register', './controllers/register.php');
+
+
 post('/edit', './php/users/edit.php');
 post('/remove', './php/users/remove.php');
 post('/add', './php/users/add.php');

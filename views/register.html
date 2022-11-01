@@ -10,19 +10,19 @@
     <div class="col p-0">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             {% if error == 'none' %}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success font-Montserrat f-weight-400" role="alert">
                     Success!
                 </div>
             {% elseif error == '1'%}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                     Some inputs were empty
                 </div>
             {% elseif error == '2' %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                     Email already in use
                 </div>
             {% elseif error == '3' %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                     Statement fail
                 </div>
             {% endif %}
@@ -33,13 +33,13 @@
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
                             <input name="firstName" type="text" class="form-control" />
-                            <label class="form-label" for="form3Example1">First name</label>
+                            <label class="form-label font-Montserrat f-weight-400" for="form3Example1">First name</label>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
                         <div class="form-outline">
                             <input name="lastName" type="text" class="form-control" />
-                            <label class="form-label" for="form3Example2">Last name</label>
+                            <label class="form-label font-Montserrat f-weight-400" for="form3Example2">Last name</label>
                         </div>
                     </div>
                 </div>
@@ -47,20 +47,20 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input name="email" type="email" class="form-control" />
-                    <label class="form-label" for="form3Example3">Email address</label>
+                    <label class="form-label font-Montserrat f-weight-400" for="form3Example3">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <input name="password" type="password" class="form-control" />
-                    <label class="form-label" for="form3Example4">Password</label>
+                    <label class="form-label font-Montserrat f-weight-400" for="form3Example4">Password</label>
                 </div>
 
 
                 <!-- Submit button -->
-                <input name="register" value="Register" type="submit" class="btn button-accent btn-block mb-4">
+                <input name="register" value="Register" type="submit" class="btn button-accent btn-block mb-4 font-Montserrat f-weight-400">
             </form>
-            <a class="btn button-accent btn-block mb-4" href="/login">Go back</a>
+            <a class="btn button-accent btn-block mb-4 font-Montserrat f-weight-400" href="/login">Go back</a>
         </div>
     </div>
 {% endblock %}

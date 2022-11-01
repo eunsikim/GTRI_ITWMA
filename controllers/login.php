@@ -18,24 +18,25 @@
     
         //  Check if inputs are empty
         if(emptyInput($id, $password)){
-            header('Location: login?error=1');
-            exit();
-        }
-        //  Check if email and password matches
-        $row = loginUser($conn, $id, $password);
-        if($row !== false){
-            $_SESSION['logged_in'] = true;
-            $_SESSION['user'] = $row['firstName'];
-            $_SESSION['role'] = 1;
-            header('Location: /');
-            exit();
+            $error = 1;
         }
         else{
-            $error = 2;
+            //  Check if email and password matches
+            $row = loginUser($conn, $id, $password);
+            if($row !== false){
+                $_SESSION['logged_in'] = true;
+                $_SESSION['user'] = $row['firstName'];
+                $_SESSION['role'] = 1;
+                header('Location: /');
+                exit();
+            }
+            else{
+                $error = 2;
+            }
         }
     }
 
-    if(isset($_POST['logout']) && $_POST['logout'] == 'logout'){
+    if(isset($_POST['logout']) && $_POST['logout'] == 'Logout'){
         $_SESSION['logged_in'] = false;
         unset($_SESSION['user']);
         header('Location: /');

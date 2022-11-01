@@ -9,9 +9,10 @@
         header('Location: sampleApp');
     }
 
-    echo $_SESSION['TWIG'] ->render('/apps/sampleApp/views/sampleApp.html', [
+    echo $_SESSION['TWIG'] ->render('/modules/sampleApp/views/sampleApp.html', [
         'isLogged' => isLogged(),
         'title' => $title,
-        'userName' => $_SESSION['user']
+        'userName' => $_SESSION['user'],
+        'appName' => $_ENV['APP_NAME']
         ]) 
 ?>
