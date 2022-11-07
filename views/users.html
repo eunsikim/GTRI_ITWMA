@@ -2,33 +2,33 @@
 
 {% block content %}
     <div class="container-fluid" style="padding: 50px 50px 0px 350px">
-        {% if error == '1'%}<div class="alert alert-danger" role="alert">Something Went Wrong</div>
-        {% elseif error == '2'%}<div class="alert alert-danger" role="alert">Some inputs were empty</div>
-        {% elseif error == '3'%}<div class="alert alert-danger" role="alert">Email already in use</div>
-        {% elseif error == '4'%}<div class="alert alert-danger" role="alert">Statement fail</div>
-        {% elseif res == '1' %} <div class="alert alert-success" role="alert">User Information Updated</div>
-        {% elseif res == '2' %} <div class="alert alert-success" role="alert">User Added</div>
+        {% if error == '1'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Something Went Wrong</div>
+        {% elseif error == '2'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Some inputs were empty</div>
+        {% elseif error == '3'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Email already in use</div>
+        {% elseif error == '4'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Statement fail</div>
+        {% elseif res == '1' %} <div class="alert alert-success font-Montserrat f-weight-400" role="alert">User Information Updated</div>
+        {% elseif res == '2' %} <div class="alert alert-success font-Montserrat f-weight-400" role="alert">User Added</div>
         {% endif %}
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col font-Montserrat f-weight-400">#</th>
+                    <th scope="col font-Montserrat f-weight-400">First</th>
+                    <th scope="col font-Montserrat f-weight-400">Last</th>
+                    <th scope="col font-Montserrat f-weight-400">Email</th>
+                    <th scope="col font-Montserrat f-weight-400">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% set counter = 0 %}
                 {% for user in users %}
                     <tr>
-                        <td>{{ counter }}</td>
-                        <td>{{ user.firstName }}</td>
-                        <td>{{ user.lastName }}</td>
-                        <td>{{ user.userID }}</td>
+                        <td class="font-Montserrat f-weight-400">{{ counter }}</td>
+                        <td class="font-Montserrat f-weight-400">{{ user.firstName }}</td>
+                        <td class="font-Montserrat f-weight-400">{{ user.lastName }}</td>
+                        <td class="font-Montserrat f-weight-400">{{ user.userID }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.userID}},{{user.id}}" id="editButton{{counter}}">
+                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.userID}},{{user.id}}" id="editButton{{counter}}">
                                 edit
                             </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="removeButton{{counter}}" data-row = "{{user.firstName}},{{user.lastName}},{{user.id}}">
@@ -59,7 +59,7 @@
                     {% endfor %}
             </tbody>    
         </table>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
+        <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
     </div>
     {% include 'views/components/modals/users/editModal.html' %}
     {% include 'views/components/modals/users/removeModal.html' %}

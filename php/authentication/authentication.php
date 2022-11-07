@@ -7,6 +7,13 @@ function isLogged(){
 		return false;
 }
 
+function isAdmin(){
+	if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == '1'){
+		return true;
+	}
+	return false;
+}
+
 function idExists($conn, $username){
 	$sql = "SELECT * FROM users WHERE userID = ?;";
 	$stmt = mysqli_stmt_init($conn);

@@ -1,7 +1,9 @@
 <?php
-function emptyInput($firstName, $lastName, $email, $password){
-	if(empty($firstName) || empty($lastName) || empty($email) || empty($password)){
-		return true;
+function emptyInput($form){
+	foreach($form as $input){
+		if(empty($input)){
+			return true;
+		}
 	}
 	return false;
 }

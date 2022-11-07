@@ -11,7 +11,12 @@
         <div class="d-flex  align-items-center nav-item dropdown-center me-3">
 
    
-        <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400">{{userName}}</span>
+        <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400">
+            {{userName}}
+            {% if userType == '1' %}
+                <i class="bi bi-star-fill color-accent"></i>
+            {% endif %}
+        </span>
 
         <span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
 
