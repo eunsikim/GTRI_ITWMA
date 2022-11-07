@@ -37,3 +37,17 @@ ALTER TABLE users
     ADD question2   VARCHAR(50) NOT NULL,
     ADD question3   VARCHAR(50) NOT NULL;
 ```
+
+### Setting up the .env file
+The .env file should contain an app name, mysql server information and user type (this will be temporary) using this format:
+```
+APP_NAME='GTRI: IT Web Management Application'
+
+DB_SERVER=mysqlServerName
+DB_USERNAME=yourUsername
+DB_PASSWORD=yourPassword
+DB_NAME=databaseName
+
+# Temporary user type value: 1 = admin, 2 = user 
+USER_TYPE=1
+```
