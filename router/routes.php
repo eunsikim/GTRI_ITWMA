@@ -19,6 +19,7 @@ if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1){
 post('/login', './controllers/login.php');
 post('/logout', './controllers/login.php');
 post('/register', './controllers/register.php');
+post('/forgotPassword', './controllers/forgotPassword.php');
 
 
 post('/edit', './php/users/edit.php');

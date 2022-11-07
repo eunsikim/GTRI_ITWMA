@@ -15,5 +15,5 @@
         'appName' => $_ENV['APP_NAME'],
         'userType' => $_ENV['USER_TYPE'],
         'admin' => isAdmin()
-        ]) 
+    ]); 
 ?>

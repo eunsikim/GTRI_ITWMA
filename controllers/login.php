@@ -12,7 +12,7 @@
     $error = null;
 
 
-    if(isset($_POST['login']) && $_POST['login'] == 'Login'){
+    if(isset($_POST['login']) && $_POST['login'] == 'Sign In'){
         $id = $_POST['user_email'];
         $password = $_POST['user_password'];
     
