@@ -16,13 +16,38 @@
 7. Add a users table in that database (use query below)
 
 ### Setting up the users table
-As of 10/11/2022, this is the query for creating the users table:
+As of 11/07/2022, this is the query for creating the users table:
 ```
 CREATE TABLE users (
     id          CHAR(36) PRIMARY KEY,
     firstName   VARCHAR(50) NOT NULL,
     lastName    VARCHAR(50) NOT NULL,
     userID      VARCHAR(50) NOT NULL UNIQUE,
-    password    VARCHAR(255) NOT NULL
+    password    VARCHAR(255) NOT NULL,
+    role        ENUM('0','1') NOT NULL DEFAULT '0',
+    question1   VARCHAR(50) NOT NULL,
+    question2   VARCHAR(50) NOT NULL,
+    question3   VARCHAR(50) NOT NULL,
 )
+```
+To add the new columns to users, run this query:
+```
+ALTER TABLE users
+    ADD question1   VARCHAR(50) NOT NULL,
+    ADD question2   VARCHAR(50) NOT NULL,
+    ADD question3   VARCHAR(50) NOT NULL;
+```
+
+### Setting up the .env file
+The .env file should contain an app name, mysql server information and user type (this will be temporary) using this format:
+```
+APP_NAME='GTRI: IT Web Management Application'
+
+DB_SERVER=mysqlServerName
+DB_USERNAME=yourUsername
+DB_PASSWORD=yourPassword
+DB_NAME=databaseName
+
+# Temporary user type value: 1 = admin, 2 = user 
+USER_TYPE=1
 ```

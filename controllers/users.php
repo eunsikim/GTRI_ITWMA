@@ -1,13 +1,7 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
-    $loader = new \Twig\Loader\FilesystemLoader('./views');
-
-    $twig = new \Twig\Environment($loader);
-
     $title = 'Users';
     // If the user is not logged in, redirect to login view
-    require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
 
     if(!isLogged()){
         header('Location: login');
@@ -42,21 +36,15 @@
         $res = $_GET['res'];
     }
 
-<<<<<<< Updated upstream
-    echo $twig->render('users.html', [
-=======
     echo $_SESSION['TWIG']->render('views/users.html', [
->>>>>>> Stashed changes
-        'title' => 'Home',
+        'title' => $title,
         'error' => $error, 
         'res' => $res, 
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
-<<<<<<< Updated upstream
-        'users' => getUsers($conn)
-=======
         'users' => getUsers($conn),
-        'appName' => $_ENV['APP_NAME']
->>>>>>> Stashed changes
+        'appName' => $_ENV['APP_NAME'],
+        'userType' => $_ENV['USER_TYPE'],
+        'admin' => isAdmin()
         ]) 
 ?>

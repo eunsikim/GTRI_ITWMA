@@ -1,5 +1,4 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'].'/php/config.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
     if(isset($_POST['remove']) && $_POST['remove'] == 'remove'){
         $id = $_POST['id'];

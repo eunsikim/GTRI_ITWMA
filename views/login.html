@@ -1,81 +1,53 @@
-{% extends '/templates/twoColumnTemplate.html' %}
+{% extends 'views/templates/twoColumnTemplate.html' %}
 
 
 {% block column1 %}
-<<<<<<< Updated upstream
-    {% include '/components/sideLogo.html'%}   
-=======
-    {% include 'views/components/sideLogo.html'%}   
->>>>>>> Stashed changes
+    {% include 'views/components/sideLogo.html' with {'appName': appName} %}   
 {% endblock %}
 
 
 {% block column2 %}
-<<<<<<< Updated upstream
-    <div class="col">
+    <div class="col p-0">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-            <h1 class="h1-login mb-3">Sign In</h1>
-=======
-    {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
-    <div class="col">
-        {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
-        <div class="d-flex flex-column justify-content-center align-items-center" style="height:calc(100vh - 54px)">
-            <h1>Log in</h1>
+            <div class="d-flex flex-column justify-content-start align-items-start" style="min-width:35%">
+                <h1 class="font-Montserrat f-weight-700 color-primary">Sign In</h1>
+                <div class="w-100">
+                    <form action="login" method="POST">
+                        {% if error == '1'%}
+                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                                Email address or Password empty
+                            </div>
+                        {% elseif error == '2' %}
+                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                                Wrong email or password
+                            </div>
+                        {% endif %}
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label font-Montserrat f-weight-600 color-primary" for="form2Example1">Email address</label>
+                            <input type="email" id="form2Example1" class="form-control rppit-inbx-s1" name="user_email" />
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label font-Montserrat f-weight-600" for="form2Example2">Password</label>
+                            <input type="password" id="form2Example2" class="form-control rppit-inbx-s1" name="user_password" />
+                        </div>
 
->>>>>>> Stashed changes
-            <div>
-                <form action="login" method="POST">
-                    {% if error == '1'%}
-                        <div class="alert alert-danger" role="alert">
-                            Email address or Password empty
-                        </div>
-                    {% elseif error == '2' %}
-                        <div class="alert alert-danger" role="alert">
-                            Wrong email or password
-                        </div>
-                    {% endif %}
-                    <!-- Email input -->
-<<<<<<< Updated upstream
-                    <div class="form-outline mb-2">
-                        <label class="form-label label-login" for="form2Example1">Email</label>
-                        <input type="email" id="form2Example1" class="form-control input-login" name="user_email" />
+                        <!-- Submit button -->
+                        <input type="submit" class="btn button-accent btn-block mb-4 font-Montserrat color-primary f-weight-700 parentWidth shadow" name="login" value="Sign In">
+                    </form>
+
+                    
+                    <div class="text-center font-Montserrat f-weight-400">
+                        <p>Don't have an account? <a href="/register" class="color-link" style="text-decoration: none;"><b>Sign Up</b></a></p>
+                        <form action="forgotPassword" method="POST" id="forgotPasswordForm">
+                            <input type="hidden" name="user_email" value="form2Example1">
+                            <input type="hidden" name="forgotPassword" value="forgotPassword">
+                            <a class="color-link" onclick="document.getElementById('forgotPasswordForm').submit();" href="#" style="text-decoration: none;"><b>Forgot Password</b></a>
+                        </form>
                     </div>
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                       <label class="form-label label-login" for="form2Example2">Password</label> 
-                       <input type="password" id="form2Example2" class="form-control input-login" name="user_password" />  
-                    </div>
-    
-                    <!-- Submit button -->
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-block mb-4 button-login" name="login">Sign In</button>
-                    </div>
-                    <!-- Register / Forgot password -->
-                    <div class="text-center">
-                        <a href="/register" class="link-login">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
-                        <a href="#" class="link-login">Forgot Password?</a>
-                    </div>
-=======
-                    <div class="form-outline mb-4">
-                        <input type="email" id="form2Example1" class="form-control" name="user_email" />
-                        <label class="form-label" for="form2Example1">Email address</label>
-                    </div>
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" name="user_password" />
-                        <label class="form-label" for="form2Example2">Password</label>
-                    </div>
-    
-                    <div class="text-center">
-                        <p>Not a member? <a href="/register">Register</a></p>
-                    </div>
-    
-                    <!-- Submit button -->
-                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="login">
->>>>>>> Stashed changes
-                </form>
+                </div>
             </div>
-            
         </div>
     </div>
             

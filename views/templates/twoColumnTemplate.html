@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% include '/templates/header.html' with {'title' : title} %}
+        {% include 'views/templates/header.html' with {'title' : title} %}
     </head>
-    <body>
+    <body class="backgroundCol">
         <div class="container-fluid">
             <div class="row min-vh-100">
                 {% block column1 %}{% endblock %}

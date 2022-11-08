@@ -1,88 +1,126 @@
 
-<<<<<<< Updated upstream
-.bg-login{
-    background-color: #18345e
-}
-=======
-/* .txt-Login{ */
-.txt-Login.variantOne{
+
+.font-Montserrat{
     font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    max-width: 600px;
 }
 
-.txt-Login.variantTwo{
-    font-family: 'Montserrat', sans-serif;
-    color: "#18345E";
-    font-weight: 700;
-    text-align: left;
-}
-
-.txt-Login.buttonLogin{
-    font-family: 'Montserrat', sans-serif;
-    color: "#18345E";
-    font-weight: 700;
-    text-align: center;
-    font-size: small;
-}
-
-.txt-Login.bottomText{
-    font-family: 'Montserrat', sans-serif;
-    color: "#18345E";
+.f-weight-300{
     font-weight: 300;
-    font-size: large;
 }
-
-.txt-Login.signUpLink{
-    font-family: 'Montserrat', sans-serif;
-    color: #22C1DC;
-    font-weight: 700;
-    text-decoration: none;
-}
-.txt-Login.signUpLink:link{
-    color: #22C1DC;
-    text-decoration: none;
-}
-.txt-Login.signUpLink:visited{
-    color: #22C1DC;
-    text-decoration: none;
-}
-.txt-Login.signUpLink:hover{
-    color: #22C1DC;
-    text-decoration: none;
-}
-.txt-Login.signUpLink:active{
-    color: #22C1DC;
-    text-decoration: none;
-}
-
-.txt-Login.inputLabel{
-    font-family: 'Montserrat Alternates', sans-serif;
-    color: "#18345E";
+.f-weight-400{
     font-weight: 400;
-    text-align: left;
 }
-/* } */
-
-
-.bg-login{
-    background-color: #18345e
+.f-weight-600{
+    font-weight: 600;
 }
-
-.button-login{
-    background: #F0AB20;
-	/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06); */
-	border-color: #F0AB20;
-	border-radius: 5px;
-	width: 320px;
-	height: 50px;
-	color:#18345E;
-	font-weight: bold;
-	margin-bottom: 10px;
+.f-weight-700{
+    font-weight: 700;
 }
 
+.em-2{
+    font-size: 2em;
+}
+
+.em-1h{
+    font-size: 1.5em;
+}
+
+.color-white{
+    color: white;
+}
+.color-primary{
+    color: #18345e;
+}
+.color-secondary{
+    color: #D9D9D9;
+}
+.color-accent{
+    color: #F0AB20;
+}
+.color-link{
+    color: #22C1DC;
+}
+
+.bg-primaryCol{
+    background-color: #18345e;
+}
+.bg-secondaryCol{
+    background-color: #D9D9D9;
+}
+
+.backgroundCol{
+    background-color: #ffffff;
+}
+
+
+.button-accent{
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #F0AB20;
+    --bs-btn-border-color: #f8ad17;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #d6991e;
+    --bs-btn-hover-border-color: #ce9117;
+    --bs-btn-focus-shadow-rgb: 130,138,145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #F0AB20;
+    --bs-btn-active-border-color: #bd8516;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #6c757d;
+    --bs-btn-disabled-border-color: #6c757d;
+}
+
+.sidenav{
+    z-index: 1035;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.font-Montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.f-weight-300{
+    font-weight: 300;
+}
+.f-weight-400{
+    font-weight: 400;
+}
+.f-weight-600{
+    font-weight: 600;
+}
+.f-weight-700{
+    font-weight: 700;
+}
+
+.em-2{
+    font-size: 2em;
+}
+
+.em-1h{
+    font-size: 1.5em;
+}
+
+.color-white{
+    color: white;
+}
+
+.color-secondary{
+    color: #D9D9D9;
+}
+.color-accent{
+    color: #F0AB20;
+}
+>>>>>>> Stashed changes
 
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -91,7 +129,13 @@
     display: flex;
     align-items: center;
 }
-
+.app-name{
+	color: white;
+	font-family: 'Montserrat';
+	text-align: center;
+	font-size: 35;;
+}
+<<<<<<< Updated upstream
 .input-login{
     background-color: #e5e5e5;
     border:0;
@@ -100,8 +144,22 @@
     min-width: 300px
 }
 
-.test{
-    min-width: 100%
+
+.button-accent{
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #F0AB20;
+    --bs-btn-border-color: #f8ad17;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #d6991e;
+    --bs-btn-hover-border-color: #ce9117;
+    --bs-btn-focus-shadow-rgb: 130,138,145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #F0AB20;
+    --bs-btn-active-border-color: #bd8516;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #6c757d;
+    --bs-btn-disabled-border-color: #6c757d;
 }
 
 .sidenav{
@@ -184,6 +242,24 @@
 
 .sidenav{
     z-index: 1035;
+}
+
+/* Red Pepper IT Input Box Style 1 */
+.rppit-inbx-s1{
+    background-color: #F4F2F2;
+    align-items: center;
+	width: 100%;
+	height: 3rem;
+	border-radius: 6px;
+	border-style: none;
+}
+
+.parentWidth{
+    width:100%
+}
+
+.shadow{
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
 }
 .h1-login, .h1-register{
 	font-family: 'Montserrat';
