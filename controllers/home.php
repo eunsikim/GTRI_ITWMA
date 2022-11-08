@@ -13,10 +13,19 @@
         header('Location: login');
     }
 
+<<<<<<< Updated upstream
     echo $twig->render('home.html', [
         'title' => 'Home',
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
         'admin' => $_ENV['USER_TYPE']
+=======
+    echo $_SESSION['TWIG']->render('/views/home.html', [
+        'title' => 'Home',
+        'userName' => $_SESSION['user'],
+        'isLogged' => isLogged(),
+        'admin' => $_ENV['USER_TYPE'],
+        'appName' => $_ENV['APP_NAME']
+>>>>>>> Stashed changes
         ]) 
 ?>

@@ -2,13 +2,22 @@
 
 
 {% block column1 %}
+<<<<<<< Updated upstream
     {% include '/components/sideLogo.html'%}   
+=======
+    {% include 'views/components/sideLogo.html'%}   
+>>>>>>> Stashed changes
 {% endblock %}
 
 
 {% block column2 %}
     <div class="col">
+<<<<<<< Updated upstream
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+=======
+        {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height:calc(100vh - 54px)">
+>>>>>>> Stashed changes
             
             {% if error == 'none' %}
                 <div class="alert alert-success" role="alert">
@@ -31,6 +40,7 @@
             <h1 class="h1-register">Sign Up</h1>
             <form action="register" method="POST">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
+<<<<<<< Updated upstream
                 <div class=" mb-1 form-outline">
                         <label class="form-label mb-1 label-register" for="form3Example1">First Name</label>
                         <input name="firstNamer" type="text" class="form-control input-register" />        
@@ -57,9 +67,42 @@
                 </div> 
 
                 <!-- Submit button -->
+=======
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input name="firstName" type="text" class="form-control" />
+                            <label class="form-label" for="form3Example1">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input name="lastName" type="text" class="form-control" />
+                            <label class="form-label" for="form3Example2">Last name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input name="email" type="email" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input name="password" type="password" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                </div>
+>>>>>>> Stashed changes
 
                     <button name="register" value="Register" type="submit" class="btn btn-primary btn-block mb-4 button-register">Sign Up</button>
 
+<<<<<<< Updated upstream
+=======
+                <!-- Submit button -->
+                <input name="register" value="register" type="submit" class="btn btn-primary btn-block mb-4">
+>>>>>>> Stashed changes
             </form>
         </div>
     </div>

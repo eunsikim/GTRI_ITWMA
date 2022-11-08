@@ -42,12 +42,21 @@
         $res = $_GET['res'];
     }
 
+<<<<<<< Updated upstream
     echo $twig->render('users.html', [
+=======
+    echo $_SESSION['TWIG']->render('views/users.html', [
+>>>>>>> Stashed changes
         'title' => 'Home',
         'error' => $error, 
         'res' => $res, 
         'userName' => $_SESSION['user'],
         'isLogged' => isLogged(),
+<<<<<<< Updated upstream
         'users' => getUsers($conn)
+=======
+        'users' => getUsers($conn),
+        'appName' => $_ENV['APP_NAME']
+>>>>>>> Stashed changes
         ]) 
 ?>

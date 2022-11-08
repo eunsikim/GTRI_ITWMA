@@ -6,8 +6,13 @@
     </head>
     <body>
         <div class="container-fluid p-0">
+<<<<<<< Updated upstream
             {% include '/components/sidenav.html' %}
             {% include '/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+=======
+            {% include 'views/components/sidenav.html' with {'appName': appName} %}
+            {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+>>>>>>> Stashed changes
             {% block content %}{% endblock %}
             
         </div>

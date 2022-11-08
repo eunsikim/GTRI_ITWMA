@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 require 'vendor/autoload.php';
 use Bcrypt\Bcrypt;
 
@@ -48,3 +49,11 @@ if(isset($_POST['register']) && $_POST['register'] == 'register'){
         exit();
     }
 }
+=======
+function emptyInput($firstName, $lastName, $email, $password){
+	if(empty($firstName) || empty($lastName) || empty($email) || empty($password)){
+		return true;
+	}
+	return false;
+}
+>>>>>>> Stashed changes

@@ -2,14 +2,27 @@
 
 
 {% block column1 %}
+<<<<<<< Updated upstream
     {% include '/components/sideLogo.html'%}   
+=======
+    {% include 'views/components/sideLogo.html'%}   
+>>>>>>> Stashed changes
 {% endblock %}
 
 
 {% block column2 %}
+<<<<<<< Updated upstream
     <div class="col">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             <h1 class="h1-login mb-3">Sign In</h1>
+=======
+    {# {% include '/components/navbar.html' with {'isLogged' : isLogged} %}     #}
+    <div class="col">
+        {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName} %}
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height:calc(100vh - 54px)">
+            <h1>Log in</h1>
+
+>>>>>>> Stashed changes
             <div>
                 <form action="login" method="POST">
                     {% if error == '1'%}
@@ -22,6 +35,7 @@
                         </div>
                     {% endif %}
                     <!-- Email input -->
+<<<<<<< Updated upstream
                     <div class="form-outline mb-2">
                         <label class="form-label label-login" for="form2Example1">Email</label>
                         <input type="email" id="form2Example1" class="form-control input-login" name="user_email" />
@@ -41,6 +55,24 @@
                         <a href="/register" class="link-login">Don't have an account? <span id="signInLink">Sign Up</span></a><br>
                         <a href="#" class="link-login">Forgot Password?</a>
                     </div>
+=======
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form2Example1" class="form-control" name="user_email" />
+                        <label class="form-label" for="form2Example1">Email address</label>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form2Example2" class="form-control" name="user_password" />
+                        <label class="form-label" for="form2Example2">Password</label>
+                    </div>
+    
+                    <div class="text-center">
+                        <p>Not a member? <a href="/register">Register</a></p>
+                    </div>
+    
+                    <!-- Submit button -->
+                    <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="login">
+>>>>>>> Stashed changes
                 </form>
             </div>
             
