@@ -1,36 +1,33 @@
 <nav class="navbar" style="padding-left:350px;">
     <div class="container-fluid p-0">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                        <span> <i class="bi bi-caret-left-fill color-accent em-2 ms-auto"></i></span>
-                    </button>
-                    <div class="offcanvas offcanvas-start bg-primaryCol" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
-                        <div class="offcanvas-header d-flex flex-column justify-content-center align-items-center mt-3 ">
-                            <h1 class="font-Montserrat color-white em-2 f-weight-600 mb-3">Menu</h1>
-                            <div class="w-25 mb-2 color-accent" style="background-color: #F0AB20; height: 5px;"></div>
-                            <div class="input-group rounded mb-3">
-                                <input type="search" class="form-control rounded font-Montserrat f-weight-400" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border-color: #F0AB20; margin: 15px;" />
-                            </div>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div>
-                                <ul class="list-unstyled text-center fs-5">
-                                    <li class="nav-item mb-4">
-                                        <a href="#"class="nav-link text-white "> <span class=" d-none d-sm-inline">Licensing Tracking</span> </a>
-                                    </li>
-                                    <li class="nav-item mb-4 ">
-                                        <a href="#" class="nav-link text-white "> <span class="d-none d-sm-inline">Self-Service</span> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+        <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <span> <i class="bi bi-caret-left-fill color-accent em-2 ms-auto"></i></span>
+        </button>
+        <div class="offcanvas offcanvas-start bg-primaryCol vh-100" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 300px;">
+            <button type="button" class="btn-close text-reset mt-3 btn-close-white ms-3" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
+            <div class="offcanvas-header d-flex flex-column justify-content-center align-items-center mt-3 ">
+                <h1 class="font-Montserrat color-white em-2 f-weight-600 mb-3">Menu</h1>
+                <div class="w-25 mb-2 color-accent" style="background-color: #F0AB20; height: 5px;"></div>
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded font-Montserrat f-weight-400" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border-color: #F0AB20; margin: 15px;" />
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <ul class="list-unstyled text-center fs-5">
+                        <li class="nav-item mb-4">
+                            <a href="#"class="nav-link text-white "> <span class=" d-none d-sm-inline">Licensing Tracking</span> </a>
+                        </li>
+                        <li class="nav-item mb-4 ">
+                            <a href="#" class="nav-link text-white "> <span class="d-none d-sm-inline">Self-Service</span> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-
-                    
+  
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-unstyled">   
                 <li class="nav-item">
                     <a class="navbar-brand font-Montserrat f-weight-700" href="/">{{appName}}</a>
                 </li>
@@ -68,6 +65,5 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </div>    
+    </div>  
 </nav>
