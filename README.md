@@ -16,7 +16,7 @@
 7. Add a users table in that database (use query below)
 
 ### Setting up the users table
-As of 11/07/2022, this is the query for creating the users table:
+As of 11/10/2022, this is the query for creating the users table:
 ```
 CREATE TABLE users (
     id          CHAR(36) PRIMARY KEY,
@@ -37,6 +37,13 @@ ALTER TABLE users
     ADD question2   VARCHAR(50) NOT NULL,
     ADD question3   VARCHAR(50) NOT NULL;
 ```
+Change Role Column to Approved
+```
+UPDATE users
+    ALTER TABLE users 
+        CHANGE role approved ENUM('0','1') NOT NULL DEFAULT '0';
+```
+
 
 ### Setting up the .env file
 The .env file should contain an app name, mysql server information and user type (this will be temporary) using this format:

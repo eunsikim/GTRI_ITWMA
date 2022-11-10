@@ -21,6 +21,10 @@
                             <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                                 Wrong email or password
                             </div>
+                        {% elseif error == '3' %}
+                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                                Your account has not been approved yet.
+                            </div>
                         {% endif %}
                         <!-- Email input -->
                         <div class="form-outline mb-4">

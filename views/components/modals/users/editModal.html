@@ -7,34 +7,43 @@
             </div>
             <div class="modal-body">
                 <form action="edit" method="POST">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <input id="mod-in-firstName" name="firstName" type="text" class="form-control"/>
-                            <label class="form-label" for="form3Example1">First name</label>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <input id="mod-in-firstName" name="firstName" type="text" class="form-control"/>
+                                <label class="form-label" for="form3Example1">First name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <input id="mod-in-lastName" name="lastName" type="text" class="form-control" />
+                                <label class="form-label" for="form3Example2">Last name</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <input id="mod-in-lastName" name="lastName" type="text" class="form-control" value="{{user.lastName}}"/>
-                            <label class="form-label" for="form3Example2">Last name</label>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                    <input id="mod-in-email" name="email" type="email" class="form-control" value="{{user.userID}}" placeholder="{{user.userID}}"/>
-                    <label class="form-label" for="form3Example3">Email address</label>
-                </div>
-                <input id="mod-in-id" name="id" value="" type="hidden" class="form-control"/>
-                <input id="mod-in-row" name="row" value="" type="hidden" class="form-control"/>
-                <!-- Submit button -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button name="edit" value="edit" type="submit" class="btn button-accent">Edit</button>
-                </div>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input id="mod-in-email" name="email" type="email" class="form-control"/>
+                        <label class="form-label" for="form3Example3">Email address</label>
+                    </div>
+
+                    <!-- Approve  -->
+                    <div class="form-outline mb-4">
+                        <div class="form-check form-switch">
+                            <label class="form-check-label" for="approvedCheckbox">Approve</label>
+                            <input class="form-check-input " type="checkbox" role="switch" id="approvedCheckbox" checked>
+                        </div>
+                    </div>
+
+                    <input id="mod-in-id" name="id" value="" type="hidden" class="form-control"/>
+                    <input id="mod-in-row" name="row" value="" type="hidden" class="form-control"/>
+                    <!-- Submit button -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button name="edit" value="edit" type="submit" class="btn button-accent">Edit</button>
+                    </div>
                 </form>
             </div>
         </div>
