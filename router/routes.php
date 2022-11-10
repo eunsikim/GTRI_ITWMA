@@ -10,7 +10,6 @@ get('/register', './controllers/register.php');
 get('/main', './controllers/mainTemplateExample.php');
 get('/twoCol', './controllers/twoColumnExample.php');
 
-
 if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1){
     get('/users', './controllers/users.php');
 }
