@@ -1,3 +1,4 @@
 <?php
-
-get('/sampleApp', './modules/sampleApp/controllers/sampleApp.php');
+    foreach($_SERVER['modules'] as $module){
+        get('/'.str_replace('./modules/', '', $module), $module."/controllers/".str_replace('./modules/', '', $module).'.php');
+    }
