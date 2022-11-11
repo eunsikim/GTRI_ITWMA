@@ -24,7 +24,7 @@ CREATE TABLE users (
     lastName    VARCHAR(50) NOT NULL,
     userID      VARCHAR(50) NOT NULL UNIQUE,
     password    VARCHAR(255) NOT NULL,
-    role        ENUM('0','1') NOT NULL DEFAULT '0',
+    approved        ENUM('0','1') NOT NULL DEFAULT '0',
     question1   VARCHAR(50) NOT NULL,
     question2   VARCHAR(50) NOT NULL,
     question3   VARCHAR(50) NOT NULL,
