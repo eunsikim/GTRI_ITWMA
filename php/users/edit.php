@@ -43,6 +43,7 @@
         mysqli_stmt_close($stmt);
 
         header('Location: /users?res=1');
+        // comment
         exit();
     }
 
