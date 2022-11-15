@@ -3,6 +3,7 @@ session_start();
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
+//Load modules
 $_SERVER['modules'] = array_values(array_filter(glob('./modules/*'), 'is_dir'));
 
 //Load .env file
