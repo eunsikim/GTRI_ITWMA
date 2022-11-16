@@ -44,7 +44,7 @@
 
 
     echo $_SESSION['TWIG']->render('./views/login.html', [
-        'title' => 'Login',
+        'title' => $title,
         'error' => $error, 
         'isLogged' => isLogged(),
         'appName' => $_ENV['APP_NAME']
