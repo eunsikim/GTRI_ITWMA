@@ -40,7 +40,7 @@ ALTER TABLE users
 ### Setting up database migration
 1. Open the terminal on the root directory and run the command "composer require robmorgan/phinx" 
 2. Run the command "vendor/bin/phinx init" to start your migration
-3. Modify the phinx.php file to suit your environment
+3. Modify the generated phinx.php file to suit your environment
 4. To create a new migration file, run the command "vendor/bin/phinx create 'NameOfNewMigrationFile'" (The name of the file has to be in CamelCase format)
 5. To run a migration, run the command "./vendor/bin/phinx migrate"
 6. To reverse a migration, tun the command "./vendor/bin/phinx rollback"
