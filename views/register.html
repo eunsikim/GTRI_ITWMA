@@ -9,39 +9,56 @@
 {% block column2 %}
     <div class="col p-0">
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+            
             {% if error == 'none' %}
                 <div class="alert alert-success font-Montserrat f-weight-400" role="alert">
                     Success!
                 </div>
             {% elseif error == '1'%}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Some inputs were empty
+                    Some inputs were empty.
                 </div>
             {% elseif error == '2' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Email already in use
+                    Email already in use.
                 </div>
             {% elseif error == '3' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Passwords does not match
+                    Passwords does not match.
                 </div>
             {% elseif error == '4' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must be at least 8 characters long.
+                </div>
+            {% elseif error == '5' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one special character (#, &, ^, *, %, @, $, !).
+                </div>
+            {% elseif error == '6' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one upper case letter and one lower case letter.
+                </div>
+            {% elseif error == '7' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one number.
+                </div>
+            {% elseif error == '8' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                     Statement fail
                 </div>
-            
             {% endif %}
 
+            <h1 class="font-Montserrat f-weight-700 color-primary mb-4">Register</h1>
             <form action="register" method="POST">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-2">
                         <div class="form-outline">
                             <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example1">First name</label>
                             <input name="firstName" type="text" class="form-control rppit-inbx-s1" />
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-2">
                         <div class="form-outline">
                             <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example2">Last name</label>
                             <input name="lastName" type="text" class="form-control rppit-inbx-s1" />
@@ -50,48 +67,40 @@
                 </div>
 
                 <!-- Email input -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-2">
                     <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example3">Email address</label>
                     <input name="email" type="email" class="form-control rppit-inbx-s1" />
                 </div>
 
                 <!-- Password input -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-2">
                     <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example4">Password</label>
                     <input name="password" type="password" class="form-control rppit-inbx-s1" />
                 </div>
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-2">
                     <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example4">Confirm Password</label>
                     <input name="confirmPassword" type="password" class="form-control rppit-inbx-s1" />
                 </div>
 
                 <!-- Security Questions input -->
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example5">Highschool graduation year</label>
-                            <input name="question1" type="text" class="form-control rppit-inbx-s1" />
-                        </div>
-                    </div>
+                    <div class="form-outline mb-2">
+                        <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example5">What's your High School graduation year?</label>
+                        <input name="question1" type="text" class="form-control rppit-inbx-s1" />
+                </div>
 
-                    <div class="col-md-6 mb-4">
-                        <div class="form-outline">
-                            <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example6">First pet</label>
-                            <input name="question2" type="text" class="form-control rppit-inbx-s1" />
-                        </div>
-                    </div>
+                     <div class="form-outline mb-2">
+                        <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example6">What was your first pet?</label>
+                        <input name="question2" type="text" class="form-control rppit-inbx-s1" />
                 </div>
 
                 <div class="form-outline mb-4">
-                    <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example7">City born</label>
+                    <label class="form-label font-Montserrat f-weight-600 color-primary" for="form3Example7">What city were you born in?</label>
                     <input name="question3" type="text" class="form-control rppit-inbx-s1" />
                 </div>
-
-
                 <!-- Submit button -->
                 <input name="register" value="Register" type="submit" class="btn button-accent btn-block mb-4 font-Montserrat color-primary f-weight-700 parentWidth shadow">
             </form>
-            <a class="btn button-accent btn-block mb-4 font-Montserrat f-weight-400 color-primary" href="/login">Go back</a>
+            <a class="btn button-accent btn-block mb-4 font-Montserrat f-weight-600 color-primary" href="/login">Go back</a>
         </div>
     </div>
 {% endblock %}
