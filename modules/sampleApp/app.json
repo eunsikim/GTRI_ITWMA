@@ -1,0 +1,6 @@
+{
+    "module_name": "Sample App",
+    "module_route": "sampleApp",
+    "module_path": "./modules/sampleApp",
+    "view_path": "./modules/sampleApp/views/sampleApp.html"
+}

@@ -1,17 +1,21 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/path.php');
+    
+    require_once($phpAuthFile);
 
-    $title = 'sampleApp';
+    require_once($modules.'/sampleApp/app.php');
+
+    $title = $moduleName;
     // If the user is not logged in, redirect to login view
 
     if(!isLogged()){
-        header('Location: sampleApp');
+        header('Location: /login');
     }
 
-    echo $_SESSION['TWIG'] ->render('/modules/sampleApp/views/sampleApp.html', [
+    echo $_SESSION['TWIG'] ->render($view, [
         'isLogged' => isLogged(),
         'title' => $title,
         'userName' => $_SESSION['user'],
-        'appName' => $_ENV['APP_NAME']
-        ]) 
-?>
+        'appName' => $_ENV['APP_NAME'],
+        'modules' => $_SERVER['MODULE_PATHS']
+    ]); 
