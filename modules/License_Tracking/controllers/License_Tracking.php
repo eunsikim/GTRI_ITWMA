@@ -13,6 +13,6 @@
         'isLogged' => isLogged(),
         'title' => $title,
         'userName' => $_SESSION['user'],
-        'appName' => $_ENV['APP_NAME']
-        ]) 
-?>
+        'appName' => $_ENV['APP_NAME'],
+        'modules' => $_SERVER['MODULE_PATHS']
+    ]);

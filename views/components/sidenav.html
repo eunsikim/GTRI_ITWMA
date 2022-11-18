@@ -10,7 +10,12 @@
     <div class="offcanvas-body">
         <div>
             <ul class="list-unstyled text-center fs-5">
-                <li class="nav-item mb-4">
+                {% for module in modules %}
+                    <li class="nav-item mb-4">
+                        <a href="/{{module.1}}" class="nav-link text-white"> <span class="d-none d-sm-inline">{{module.0}}</span> </a>
+                    </li>
+                {% endfor %}
+                {# <li class="nav-item mb-4">
                     <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Purchasing</span> </a>
                 </li>
                 <li class="nav-item mb-4">
@@ -36,7 +41,7 @@
                 </li>
                 <li class="nav-item mb-4 ">
                     <a href="#" class="nav-link text-white "> <span class="d-none d-sm-inline">Self-Service</span> </a>
-                </li>
+                </li> #}
             </ul>
         </div>
     </div>
