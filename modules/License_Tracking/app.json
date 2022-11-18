@@ -2,5 +2,6 @@
     "module_name": "License Tracking",
     "module_route": "License_Tracking",
     "module_path": "./modules/License_Tracking",
+    "dashboard_path": "./modules/License_Tracking/dashboard/License_TrackingDash.html",
     "view_path": "./modules/License_Tracking/views/License_Tracking.html"
 }
