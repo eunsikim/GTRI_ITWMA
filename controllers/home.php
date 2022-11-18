@@ -14,6 +14,7 @@
         'admin' => $_ENV['USER_TYPE'],
         'appName' => $_ENV['APP_NAME'],
         'userType' => $_ENV['USER_TYPE'],
-        'admin' => isAdmin()
+        'admin' => isAdmin(),
+        'modules' => $_SERVER['MODULE_PATHS']
     ]); 
 ?>
