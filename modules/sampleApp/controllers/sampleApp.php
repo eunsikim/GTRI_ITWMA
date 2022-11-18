@@ -3,7 +3,7 @@
     
     require_once($phpAuthFile);
 
-    require_once($modules.'sampleApp/app.php');
+    require_once($modules.'/sampleApp/app.php');
 
     $title = $moduleName;
     // If the user is not logged in, redirect to login view
@@ -17,5 +17,4 @@
         'title' => $title,
         'userName' => $_SESSION['user'],
         'appName' => $_ENV['APP_NAME']
-        ]) 
-?>
+    ]); 

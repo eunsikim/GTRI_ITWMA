@@ -1,0 +1,5 @@
+{
+    "module_name": "License Tracking",
+    "module_path": "./modules/License_Tracking",
+    "view_path": "./modules/License_Tracking/views/License_Tracking.html"
+}
