@@ -17,6 +17,7 @@ return
             'pass' => '',
             'port' => '3306',
             'charset' => 'utf8',
+            'collation'=> 'utf8mb4_general_ci',
         ],
         'development' => [
             'adapter' => 'mysql',
@@ -26,6 +27,7 @@ return
             'pass' => '',
             'port' => '3306',
             'charset' => 'utf8',
+            'collation'=> 'utf8mb4_general_ci',
         ],
         'testing' => [
             'adapter' => 'mysql',
@@ -35,6 +37,7 @@ return
             'pass' => '',
             'port' => '3306',
             'charset' => 'utf8',
+            'collation'=> 'utf8mb4_general_ci',
         ]
     ],
     'version_order' => 'creation'
