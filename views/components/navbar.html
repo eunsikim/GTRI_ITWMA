@@ -1,90 +1,48 @@
-<nav class="navbar" style="padding-left:350px;">
-    <div class="container-fluid p-0">
-        <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+<nav class="navbar">
+    <div class="container-fluid" style="padding: 0px 50px 0px 50px">
+        <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="padding-left: 0px">
             <span> <i class="bi bi-caret-left-fill color-accent em-2 ms-auto"></i></span>
         </button>
-        <div class="offcanvas offcanvas-start bg-primaryCol vh-100" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 300px;">
-            <button type="button" class="btn-close text-reset mt-3 btn-close-white ms-3" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
-            <div class="offcanvas-header d-flex flex-column justify-content-center align-items-center mt-3 ">
-                <h1 class="font-Montserrat color-white em-2 f-weight-600 mb-3">Menu</h1>
-                <div class="w-25 mb-2 color-accent" style="background-color: #F0AB20; height: 5px;"></div>
-                <div class="input-group rounded">
-                    <input type="search" class="form-control rounded font-Montserrat f-weight-400" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border-color: #F0AB20; margin: 15px;" />
-                </div>
-            </div>
-            <div class="offcanvas-body">
-                <div>
-                    <ul class="list-unstyled text-center fs-5">
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Purchasing</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="/License_Tracking"class="nav-link text-white"style=""> <span class="d-none d-sm-inline">Licensing Tracking</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Asset Tracking</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Budget Management</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Issue Management</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Ticket Management</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Labor Management</span> </a>
-                        </li>
-                        <li class="nav-item mb-4">
-                            <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Procurement Management</span> </a>
-                        </li>
-                        <li class="nav-item mb-4 ">
-                            <a href="#" class="nav-link text-white "> <span class="d-none d-sm-inline">Self-Service</span> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
+        {% include 'views/components/sidenav.html' %}
   
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-unstyled">   
-                <li class="nav-item">
-                    <a class="navbar-brand font-Montserrat f-weight-700" href="/">{{appName}}</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-unstyled">   
+            <li class="nav-item">
+                <a class="navbar-brand font-Montserrat f-weight-700" href="/">{{appName}}</a>
+            </li>
+        </ul>
+        <div class="d-flex  align-items-center nav-item dropdown-center me-3">
+            <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400 fs-5">
+                {{userName}}
+                {% if userType == '1' %}
+                    <i class="bi bi-star-fill color-accent"></i>
+                {% endif %}
+            </span>
+    
+            <span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
+    
+            
+            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+    
+            <ul class="dropdown-menu dropdown-menu-end" style="border: 0.5px solid #000000;">
+                
+                <li>
+                    <a class="btn font-Montserrat f-weight-400" href="/">Dashboard</a>
+                </li>
+                {% if admin %}
+                <li>
+                    <a class="btn font-Montserrat f-weight-400" href="users">Users</a>
+                </li>
+                {% endif %}
+                <li><a class="btn font-Montserrat f-weight-400" href="#">Profile</a></li>
+                <li><a class="btn font-Montserrat f-weight-400" href="#">Settings</a></li>
+                <li>
+                    <form action="logout" method="POST">
+                        <input type="submit" class="btn font-Montserrat f-weight-400" name="logout" value="Logout">
+                    </form>
                 </li>
             </ul>
-            <div class="d-flex  align-items-center nav-item dropdown-center me-3">
-                <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400 fs-5">
-                    {{userName}}
-                    {% if userType == '1' %}
-                        <i class="bi bi-star-fill color-accent"></i>
-                    {% endif %}
-                </span>
-        
-                <span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
-        
-                
-                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                </a>
-        
-                <ul class="dropdown-menu dropdown-menu-end" style="border: 0.5px solid #000000;">
-                    
-                    <li>
-                        <a class="btn font-Montserrat f-weight-400" href="/">Dashboard</a>
-                    </li>
-                    {% if admin %}
-                    <li>
-                        <a class="btn font-Montserrat f-weight-400" href="users">Users</a>
-                    </li>
-                    {% endif %}
-                    <li><a class="btn font-Montserrat f-weight-400" href="#">Profile</a></li>
-			        <li><a class="btn font-Montserrat f-weight-400" href="#">Settings</a></li>
-                    <li>
-                        <form action="logout" method="POST">
-                            <input type="submit" class="btn font-Montserrat f-weight-400" name="logout" value="Logout">
-                        </form>
-                    </li>
-                </ul>
-            </div>
+        </div>
     </div>  
 </nav>

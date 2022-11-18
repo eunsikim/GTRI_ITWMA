@@ -1,7 +1,7 @@
 {% extends 'views/templates/mainTemplate.html' %}
 
 {% block content %}
-    <div class="container-fluid" style="padding: 50px 50px 0px 350px">
+    <div class="container-fluid rppit-mc-p1">
         {% if error == '1'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Something Went Wrong</div>
         {% elseif error == '2'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Some inputs were empty</div>
         {% elseif error == '3'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Email already in use</div>
