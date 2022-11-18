@@ -16,6 +16,7 @@
                     <th scope="col font-Montserrat f-weight-400">First</th>
                     <th scope="col font-Montserrat f-weight-400">Last</th>
                     <th scope="col font-Montserrat f-weight-400">Email</th>
+                    <th scope="col font-Montserrat f-weight-400">Status</th>
                     <th scope="col font-Montserrat f-weight-400">Actions</th>
                 </tr>
             </thead>
@@ -27,8 +28,17 @@
                         <td class="font-Montserrat f-weight-400">{{ user.firstName }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.lastName }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.userID }}</td>
+                        <td class="">
+                            {% if user.approved == 1 %}
+                                {# <span class="badge rounded-pill text-bg-success font-Montserrat f-weight-300 em-1">Approved</span> #}
+                                <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2">Approved</small>
+                            {% else %}
+                                {# <span class="badge rounded-pill text-bg-secondary font-Montserrat f-weight-300 em-1">Pending</span> #}
+                                <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">Peding</small>
+                            {% endif %}
+                        </td>
                         <td>
-                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.userID}},{{user.id}}" id="editButton{{counter}}">
+                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.userID}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
                                 edit
                             </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="removeButton{{counter}}" data-row = "{{user.firstName}},{{user.lastName}},{{user.id}}">
@@ -37,13 +47,19 @@
                             <script defer>
                                 $("#editButton{{counter}}").click(function() {
                                     let row = $("#editButton{{counter}}").data("row").split(",")
-                                    console.log(row[0])
+                                    console.log(row)
                                     $("#mod-in-firstName").val(row[0])
                                     $("#mod-in-lastName").val(row[1])
                                     $("#mod-in-email").val(row[2])
                                     $("#mod-in-id").val(row[3])
-                                    $("#mod-in-row").val(`${row[0]},${row[1]},${row[2]},${row[3]}`)
-                                    console.log($("#mod-in-row").val())
+                                    $("#mod-in-row").val(`${row[0]},${row[1]},${row[2]},${row[3]},${row[4]}`)
+                                    console.log(row[4])
+                                    if(row[4] == 1){
+                                        $("#approvedCheckbox").prop('checked', true);
+                                    }
+                                    else{
+                                        $("#approvedCheckbox").prop('checked', false);
+                                    }
                                 });
                             </script>
                             <script defer>

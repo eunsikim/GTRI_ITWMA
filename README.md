@@ -16,7 +16,7 @@
 7. Add a users table in that database (use query below)
 
 ### Setting up the users table
-As of 11/07/2022, this is the query for creating the users table:
+As of 11/10/2022, this is the query for creating the users table:
 ```
 CREATE TABLE users (
     id          CHAR(36) PRIMARY KEY,
@@ -24,7 +24,7 @@ CREATE TABLE users (
     lastName    VARCHAR(50) NOT NULL,
     userID      VARCHAR(50) NOT NULL UNIQUE,
     password    VARCHAR(255) NOT NULL,
-    role        ENUM('0','1') NOT NULL DEFAULT '0',
+    approved    ENUM('0','1') NOT NULL DEFAULT '0',
     question1   VARCHAR(50) NOT NULL,
     question2   VARCHAR(50) NOT NULL,
     question3   VARCHAR(50) NOT NULL,
@@ -36,6 +36,22 @@ ALTER TABLE users
     ADD question1   VARCHAR(50) NOT NULL,
     ADD question2   VARCHAR(50) NOT NULL,
     ADD question3   VARCHAR(50) NOT NULL;
+```
+
+### Setting up database migration
+1. Open the terminal on the root directory and run the command "composer require robmorgan/phinx" 
+2. Run the command "vendor/bin/phinx init" to start your migration
+3. Modify the generated phinx.php file to suit your environment
+4. To create a new migration file, run the command "vendor/bin/phinx create 'NameOfNewMigrationFile'" (The name of the file has to be in CamelCase format)
+5. To run a migration, run the command "./vendor/bin/phinx migrate"
+6. To reverse a migration, tun the command "./vendor/bin/phinx rollback"
+
+=======
+Change Role Column to Approved
+```
+UPDATE users
+    ALTER TABLE users 
+        CHANGE role approved ENUM('0','1') NOT NULL DEFAULT '0';
 ```
 
 ### Setting up the .env file
@@ -50,4 +66,6 @@ DB_NAME=databaseName
 
 # Temporary user type value: 1 = admin, 2 = user 
 USER_TYPE=1
+
+
 ```

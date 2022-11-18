@@ -16,21 +16,36 @@
                 </div>
             {% elseif error == '1'%}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Some inputs were empty
+                    Some inputs were empty.
                 </div>
             {% elseif error == '2' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Email already in use
+                    Email already in use.
                 </div>
             {% elseif error == '3' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                    Passwords does not match
+                    Passwords does not match.
                 </div>
             {% elseif error == '4' %}
                 <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must be at least 8 characters long.
+                </div>
+            {% elseif error == '5' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one special character (#, &, ^, *, %, @, $, !).
+                </div>
+            {% elseif error == '6' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one upper case letter and one lower case letter.
+                </div>
+            {% elseif error == '7' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
+                    Password must contain at least one number.
+                </div>
+            {% elseif error == '8' %}
+                <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                     Statement fail
                 </div>
-            
             {% endif %}
 
             <h1 class="font-Montserrat f-weight-700 color-primary mb-4">Register</h1>
