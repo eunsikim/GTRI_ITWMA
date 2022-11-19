@@ -22,7 +22,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'add'){
     }
 
     else{
-        $sql = 'INSERT INTO users(id, firstName, lastName, userID, password) VALUES (UUID(), ?, ?, ?, ?);';
+        $sql = 'INSERT INTO users(id, firstName, lastName, email, password) VALUES (UUID(), ?, ?, ?, ?);';
         $stmt = mysqli_stmt_init($conn);
 
         //	Check if statement fails

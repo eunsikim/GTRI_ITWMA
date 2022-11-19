@@ -55,7 +55,7 @@
         }
     
         else{
-            $sql = 'INSERT INTO users(id, firstName, lastName, userID, password, question1, question2, question3) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?);';
+            $sql = 'INSERT INTO users(id, firstName, lastName, email, password, question1, question2, question3) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?);';
             $stmt = mysqli_stmt_init($conn);
     
             //	Check if statement fails
