@@ -15,7 +15,7 @@ function isAdmin(){
 }
 
 function idExists($conn, $username){
-	$sql = "SELECT * FROM users WHERE userID = ?;";
+	$sql = "SELECT * FROM users WHERE email = ?;";
 	$stmt = mysqli_stmt_init($conn);
 
 	//	Check if statement fails
