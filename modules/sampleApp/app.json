@@ -3,5 +3,6 @@
     "module_route": "sampleApp",
     "module_root": "./modules/sampleApp",
     "dashboard_path": "./modules/sampleApp/dashboard/sampleAppDash.html",
-    "view_path": "/modules/sampleApp/views/sampleApp.html"
+    "view_path": "/modules/sampleApp/views/sampleApp.html",
+    "migration_path": "%%PHINX_CONFIG_DIR%%/modules/sampleApp/migrations"
 }
