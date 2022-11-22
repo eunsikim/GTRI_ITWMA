@@ -9,6 +9,7 @@ get('/login', './controllers/login.php');
 get('/register', './controllers/register.php');
 get('/main', './controllers/mainTemplateExample.php');
 get('/twoCol', './controllers/twoColumnExample.php');
+get('/profile', './controllers/profile.php'); // 127.0.0.1:8000/helloWorld  <a href='/helloWorld'></a>
 
 if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1){
     get('/users', './controllers/users.php');

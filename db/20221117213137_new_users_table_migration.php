@@ -16,12 +16,12 @@ final class NewUsersTableMigration extends AbstractMigration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function change()
+    public function update()
     {
         $users = $this->table('users');
             $users 
-                  ->addColumn('first_name', 'string', ['limit' => 50, 'null' => false])
-                  ->addColumn('last_name', 'string', ['limit' => 50, 'null' => false])
+                  ->addColumn('firstName', 'string', ['limit' => 50, 'null' => false])
+                  ->addColumn('lastName', 'string', ['limit' => 50, 'null' => false])
                   ->addColumn('role', 'enum', ['values' => ['0', '1'], 'default' => '0'])
                   ->addColumn('password', 'string', ['limit' => 255, 'null' => false])
                   ->addColumn('email', 'string', ['limit' => 50, 'null' => false])

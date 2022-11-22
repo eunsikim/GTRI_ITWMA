@@ -1,0 +1,50 @@
+{% extends 'views/templates/mainTemplate.html' %}
+
+{% block content %}
+    <div class="container-fluid" style="padding: 20px 50px 0px 350px;">
+
+        <style>
+            .left{
+                width: 30%;
+                float: left;
+            }
+            .right{
+                width: 70%;
+                float: left;
+            }
+        </style>
+
+        <div class="left">               
+            <img src="/img/icons/rofile.jpg" style="width:60%;"> <br> <br>
+            <button> remove</button> <button> change</button>
+            
+        </div>
+    
+        <div class="right">
+            <button type="button" class="btn btn-light" ><strong> Overview</strong></button>
+            <button type="button" class="btn btn-light" ><strong> Assets</strong></button>
+            <button type="button" class="btn btn-light" ><strong> Tickets</strong></button>
+            <button type="button" class="btn btn-light" ><strong> Checkouts</strong></button>
+
+            <!-- This is hr lne -->
+            <hr style="height:5px;border: width 3px;color:gray;background-color:#f0ab20">
+
+            <!-- This is from navbar.html line 10-->
+            <div class="w-25 mb-2 color-accent" style="background-color: #f0ab20; height: 5px;"></div>
+
+            First  Name: <input type="text"> <br> 
+            Last Name: <input type="text"> <br>
+            Email: <input type="text"> <br>
+            Password: <input type="text"> <br>
+            High School Graduation Year: <input type="text"> <br>
+            First Pet: <input type="text"> <br>
+            Place of Birth (City): <input type="text"> <br>
+
+            <br>
+            <button> save</button>
+            <button> cancel</button>
+        </div>
+
+    </div>
+    
+{% endblock %}
