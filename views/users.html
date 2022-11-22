@@ -27,7 +27,7 @@
                         <td class="font-Montserrat f-weight-400">{{ counter }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.firstName }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.lastName }}</td>
-                        <td class="font-Montserrat f-weight-400">{{ user.userID }}</td>
+                        <td class="font-Montserrat f-weight-400">{{ user.email }}</td>
                         <td class="">
                             {% if user.approved == 1 %}
                                 {# <span class="badge rounded-pill text-bg-success font-Montserrat f-weight-300 em-1">Approved</span> #}
@@ -38,7 +38,7 @@
                             {% endif %}
                         </td>
                         <td>
-                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.userID}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
+                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.email}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
                                 edit
                             </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="removeButton{{counter}}" data-row = "{{user.firstName}},{{user.lastName}},{{user.id}}">
