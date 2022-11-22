@@ -16,38 +16,46 @@
 7. Add a users table in that database (use query below)
 
 ### Setting up the users table
-As of 11/07/2022, this is the query for creating the users table:
+To create/update all tables, run the following command at root directory:
 ```
-CREATE TABLE users (
-    id          CHAR(36) PRIMARY KEY,
-    firstName   VARCHAR(50) NOT NULL,
-    lastName    VARCHAR(50) NOT NULL,
-    userID      VARCHAR(50) NOT NULL UNIQUE,
-    password    VARCHAR(255) NOT NULL,
-    role        ENUM('0','1') NOT NULL DEFAULT '0',
-    question1   VARCHAR(50) NOT NULL,
-    question2   VARCHAR(50) NOT NULL,
-    question3   VARCHAR(50) NOT NULL,
-)
+./vendor/bin/phinx migrate
+
 ```
-To add the new columns to users, run this query:
-```
-ALTER TABLE users
-    ADD question1   VARCHAR(50) NOT NULL,
-    ADD question2   VARCHAR(50) NOT NULL,
-    ADD question3   VARCHAR(50) NOT NULL;
-```
+
+### Create a new migration
+- To create a new migration file, run the command "vendor/bin/phinx create 'NameOfNewMigrationFile'" (The name of the file has to be in CamelCase format)
+- Select the path you are creating the migration for.
+
+### Useful migration commands
+- To run a migration, run the command "./vendor/bin/phinx migrate"
+- To reverse a migration, tun the command "./vendor/bin/phinx rollback"
 
 ### Setting up the .env file
 The .env file should contain an app name, mysql server information and user type (this will be temporary) using this format:
 ```
-APP_NAME='GTRI: IT Web Management Application'
+APP_NAME='Name of the application'
 
-DB_SERVER=mysqlServerName
-DB_USERNAME=yourUsername
-DB_PASSWORD=yourPassword
-DB_NAME=databaseName
+# Database mode
+DB_MODE=development
+
+# Production Database
+DB_SERVER=DatabaseAddressWithPort
+DB_HOST=DatabaseAddress
+DB_PORT=DatabasePort 
+DB_USERNAME=Username
+DB_PASSWORD=Password
+DB_NAME=DabaseName
+
+# Development Database
+DB_SERVER_DEV=DatabaseAddressWithPort
+DB_HOST_DEV=DatabaseAddress
+DB_PORT_DEV=DatabasePort 
+DB_USERNAME_DEV=Username
+DB_PASSWORD_DEV=Password
+DB_NAME_DEV=DabaseName
 
 # Temporary user type value: 1 = admin, 2 = user 
 USER_TYPE=1
+
+
 ```

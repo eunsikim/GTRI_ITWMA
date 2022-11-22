@@ -24,11 +24,16 @@
             //  Check if email and password matches
             $row = loginUser($conn, $id, $password);
             if($row !== false){
-                $_SESSION['logged_in'] = true;
-                $_SESSION['user'] = $row['firstName'];
-                $_SESSION['role'] = 1;
-                header('Location: /');
-                exit();
+                if($row['approved'] === '1'){
+                    $_SESSION['logged_in'] = true;
+                    $_SESSION['user'] = $row['firstName'];
+                    $_SESSION['approved'] = $row['approved'];
+                    header('Location: /');
+                    exit();
+                }
+                else{
+                    $error = 3;
+                }
             }
             else{
                 $error = 2;
