@@ -6,8 +6,10 @@
     </head>
     <body class="backgroundCol">
         <div class="container-fluid p-0">
+            {% include 'views/components/sidenav.html' with {'appName': appName} %}
             {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName, 'admin': admin} %}
             {% block content %}{% endblock %}
+            
         </div>
     </body>
 </html>

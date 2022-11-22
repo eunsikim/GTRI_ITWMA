@@ -16,10 +16,6 @@ if(isset($_ENV['USER_TYPE']) && $_ENV['USER_TYPE'] == 1){
     get('/users', './controllers/users.php');
 }
 
-get('/t', './test.php');
-get('/t2', './test2.php');
-get('/t3', './controllers/test3.php');
-
 //  POST
 post('/login', './controllers/login.php');
 post('/logout', './controllers/login.php');

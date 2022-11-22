@@ -1,21 +1,17 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'].'/app.php');
-    
-    require_once($phpAuthFile);
+    require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
 
-    $app = $_SERVER['DOCUMENT_ROOT'].'/modules/sampleApp/app.json';
-
-    $title = getValue($app, 'module_name');
+    $title = 'sampleApp';
     // If the user is not logged in, redirect to login view
 
     if(!isLogged()){
-        header('Location: /login');
+        header('Location: sampleApp');
     }
-    // getValue($path, 'view_path')
-    echo $_SESSION['TWIG'] ->render(getValue($app, 'view_path'), [
+
+    echo $_SESSION['TWIG'] ->render('/modules/sampleApp/views/sampleApp.html', [
         'isLogged' => isLogged(),
         'title' => $title,
         'userName' => $_SESSION['user'],
-        'appName' => $_ENV['APP_NAME'],
-        'modules' => $_SERVER['MODULE_PATHS']
-    ]); 
+        'appName' => $_ENV['APP_NAME']
+        ]) 
+?>

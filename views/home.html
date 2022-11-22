@@ -1,19 +1,21 @@
 {% extends 'views/templates/mainTemplate.html' %}
 
 {% block content %}        
-    <div class="container-fluid rppit-mc-p1">
-        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="container-fluid" style="padding: 50px 50px 0px 350px;">
+        <div class="h-100 d-flex flex-column justify-content-start align-items-center">
             <div class="text-center w-75 p-3">
-                <h1 class="font-Montserrat f-weight-700 display-4">Welcome to {{appName}}!</h1>
-                <p class="font-Montserrat">An IT Web Management Application</p>
+                <h1 class="font-Montserrat fw-bold display-4">Welcome to IT Web Management Application!</h1>
+                <p class="font-Montserrat">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum dolores nisi dolorum explicabo sequi similique quo eos vitae, quis saepe doloremque eum minus delectus provident ea sint et laborum.</p>
             </div>
-            <div class="d-flex flex-row  flex-wrap justify-content-center align-items-start" style="">
-                {% for module in modules %}
-                    <div class="bg-secondaryCol flex-fill m-4 p-3" style="min-height: 300px; min-width:500px; border-radius:10px">
-                        {% include module.2 %}
-                    </div>
-                {% endfor %}
+            <div class="h-100 w-100 d-flex flex-row justify-content-center align-items-start">
+                <div class="bg-secondaryCol flex-fill m-4" style="height: 300px; border-radius:10px"></div>
+                <div class="bg-secondaryCol flex-fill m-4" style="height: 300px; border-radius:10px"></div>
+            </div>
+            <div class="h-100 w-100 d-flex flex-row justify-content-center align-items-start">
+                <div class="bg-secondaryCol flex-fill m-4" style="height: 300px; border-radius:10px"></div>
+                <div class="bg-secondaryCol flex-fill m-4" style="height: 300px; border-radius:10px"></div>
             </div>
         </div>
+        
     </div>
 {% endblock %}

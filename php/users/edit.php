@@ -8,12 +8,6 @@
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
         $email = $_POST['email'];
-        if(isset($_POST['approved'])){
-            $approved = 1;
-        }
-        else{
-            $approved = 0;
-        }
 
         $row = explode(', ', $_POST['row']);
 
@@ -26,7 +20,7 @@
         if(empty($email)){
             $email = $row[2];
         }
-        $sql = 'UPDATE users SET firstName=?, lastName=?, email=?, approved=? WHERE id=?';
+        $sql = 'UPDATE users SET firstName=?, lastName=?, userID=? WHERE id=?';
         $stmt = mysqli_prepare($conn, $sql);
         echo $sql;
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -34,7 +28,7 @@
             exit();
         }
 
-        mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $approved, $id);
+        mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $email, $id);
 
         mysqli_stmt_execute($stmt);
 
@@ -43,7 +37,6 @@
         mysqli_stmt_close($stmt);
 
         header('Location: /users?res=1');
-        // comment
         exit();
     }
 

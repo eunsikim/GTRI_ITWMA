@@ -21,10 +21,6 @@
                             <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
                                 Wrong email or password
                             </div>
-                        {% elseif error == '3' %}
-                            <div class="alert alert-danger font-Montserrat f-weight-400" role="alert">
-                                Your account has not been approved yet.
-                            </div>
                         {% endif %}
                         <!-- Email input -->
                         <div class="form-outline mb-4">
@@ -47,7 +43,7 @@
                         <form action="forgotPassword" method="POST" id="forgotPasswordForm">
                             <input type="hidden" name="user_email" value="form2Example1">
                             <input type="hidden" name="forgotPassword" value="forgotPassword">
-                            <a class="color-link" onclick="document.getElementById('forgotPasswordForm').submit();" href="/forgotPassword" style="text-decoration: none;"><b>Forgot Password</b></a>
+                            <a class="color-link" onclick="document.getElementById('forgotPasswordForm').submit();" href="#" style="text-decoration: none;"><b>Forgot Password</b></a>
                         </form>
                     </div>
                 </div>
