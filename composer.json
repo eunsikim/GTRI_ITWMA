@@ -3,6 +3,7 @@
         "polarising/bcrypt": "^1.0",
         "vlucas/phpdotenv": "^5.4",
         "twig/twig": "^3.4",
-        "robmorgan/phinx": "^0.13.1"
+        "robmorgan/phinx": "^0.13.1",
+        "ramsey/uuid": "^4.6"
     }
 }
