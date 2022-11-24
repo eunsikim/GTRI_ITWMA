@@ -26,6 +26,7 @@
         if(empty($email)){
             $email = $row[2];
         }
+       
         $sql = 'UPDATE users SET firs_name=?, last_name=?, email=?, approved=? WHERE id=?';
         $stmt = mysqli_prepare($conn, $sql);
         echo $sql;

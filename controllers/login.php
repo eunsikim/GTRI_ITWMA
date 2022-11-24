@@ -28,6 +28,7 @@
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user'] = $row['firstName'];
                     $_SESSION['approved'] = $row['approved'];
+                    $_SESSION['userID'] = $row['id'];
                     header('Location: /');
                     exit();
                 }
