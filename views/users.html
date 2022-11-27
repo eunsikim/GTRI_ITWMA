@@ -1,30 +1,32 @@
 {% extends 'views/templates/mainTemplate.html' %}
 
 {% block content %}
+
+
     <div class="container-fluid rppit-mc-p1">
-        {% if error == '1'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Something Went Wrong</div>
-        {% elseif error == '2'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Some inputs were empty</div>
-        {% elseif error == '3'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Email already in use</div>
-        {% elseif error == '4'%}<div class="alert alert-danger font-Montserrat f-weight-400" role="alert">Statement fail</div>
-        {% elseif res == '1' %} <div class="alert alert-success font-Montserrat f-weight-400" role="alert">User Information Updated</div>
-        {% elseif res == '2' %} <div class="alert alert-success font-Montserrat f-weight-400" role="alert">User Added</div>
-        {% endif %}
-        <table class="table">
+    
+        <div class="mb-5">
+            <table id="table" 
+                     data-toggle="table"
+                     data-search="true"
+                     data-filter-control="true" 
+                     data-show-export="true"
+                     data-click-to-select="true"
+                     data-toolbar="#toolbar"
+               class="table-responsive mb-2">
             <thead>
                 <tr>
-                    <th scope="col font-Montserrat f-weight-400">#</th>
-                    <th scope="col font-Montserrat f-weight-400">First</th>
-                    <th scope="col font-Montserrat f-weight-400">Last</th>
-                    <th scope="col font-Montserrat f-weight-400">Email</th>
-                    <th scope="col font-Montserrat f-weight-400">Status</th>
-                    <th scope="col font-Montserrat f-weight-400">Actions</th>
+                    <th data-field="firstName"data-sortable="true">First Name</th>
+                    <th data-field="lastName" data-sortable="true">Last Name</th>
+                    <th data-field="email" data-sortable="true">Email</th>
+                    <th data-field="status" data-sortable="true">Status</th>
+                    <th data-field="actions" data-sortable="false">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>      
                 {% set counter = 0 %}
                 {% for user in users %}
                     <tr>
-                        <td class="font-Montserrat f-weight-400">{{ counter }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.firstName }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.lastName }}</td>
                         <td class="font-Montserrat f-weight-400">{{ user.email }}</td>
@@ -36,6 +38,7 @@
                                 {# <span class="badge rounded-pill text-bg-secondary font-Montserrat f-weight-300 em-1">Pending</span> #}
                                 <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">Peding</small>
                             {% endif %}
+                            
                         </td>
                         <td>
                             <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.email}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
@@ -71,120 +74,13 @@
                             </script>
                         </td>
                     </tr>
-                    {% set counter = counter + 1 %}
-                    {% endfor %}
-            </tbody>    
-        </table>
-        <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
-    </div>
-
-    <div class="container">
-    
-        <table id="table" 
-                     data-toggle="table"
-                     data-search="true"
-                     data-filter-control="true" 
-                     data-show-export="true"
-                     data-click-to-select="true"
-                     data-toolbar="#toolbar"
-               class="table-responsive">
-            <thead>
-                <tr>
-                    <th data-field="state" data-checkbox="true"></th>
-                    <th data-field="prenom"data-sortable="true">First Name</th>
-                    <th data-field="date" data-sortable="true">Date</th>
-                    <th data-field="examen" data-sortable="true">Examination</th>
-                    <th data-field="note" data-sortable="true">Note</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-                    <td>Jitender</td>
-                    <td>01/09/2015</td>
-                    <td>Français</td>
-                    <td>12/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
-                    <td>Jahid</td>
-                    <td>05/09/2015</td>
-                    <td>Philosophie</td>
-                    <td>8/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>Valentin</td>
-                    <td>05/09/2015</td>
-                    <td>Philosophie</td>
-                    <td>4/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="3" name="btSelectItem" type="checkbox"></td>
-                    <td>Milton</td>
-                    <td>05/09/2015</td>
-                    <td>Philosophie</td>
-                    <td>10/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="4" name="btSelectItem" type="checkbox"></td>
-                    <td>Gonesh</td>
-                    <td>01/09/2015</td>
-                    <td>Français</td>
-                    <td>14/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="5" name="btSelectItem" type="checkbox"></td>
-                    <td>Valérie</td>
-                    <td>07/09/2015</td>
-                    <td>Mathématiques</td>
-                    <td>19/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="6" name="btSelectItem" type="checkbox"></td>
-                    <td>Valentin</td>
-                    <td>01/09/2015</td>
-                    <td>Français</td>
-                    <td>11/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="7" name="btSelectItem" type="checkbox"></td>
-                    <td>Eric</td>
-                    <td>01/10/2015</td>
-                    <td>Philosophie</td>
-                    <td>8/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="8" name="btSelectItem" type="checkbox"></td>
-                    <td>Valentin</td>
-                    <td>07/09/2015</td>
-                    <td>Mathématiques</td>
-                    <td>14/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="9" name="btSelectItem" type="checkbox"></td>
-                    <td>Valérie</td>
-                    <td>01/10/2015</td>
-                    <td>Philosophie</td>
-                    <td>12/20</td>
-                </tr>
-                <tr>
-                    <td class="bs-checkbox "><input data-index="10" name="btSelectItem" type="checkbox"></td>
-                    <td>Eric</td>
-                    <td>07/09/2015</td>
-                    <td>Mathématiques</td>
-                    <td>14/20</td>
-                </tr>
-                <tr>
-                <td class="bs-checkbox "><input data-index="11" name="btSelectItem" type="checkbox"></td>
-                    <td>Valentin</td>
-                    <td>01/10/2015</td>
-                    <td>Philosophie</td>
-                    <td>10/20</td>
-                </tr>
+                {% set counter = counter + 1 %}
+                {% endfor %}
             </tbody>
         </table>
         </div>
+        <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
+    </div>
 
 
     {% include 'views/components/modals/users/editModal.html' %}
