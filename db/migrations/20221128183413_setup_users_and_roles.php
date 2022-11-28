@@ -1,14 +1,11 @@
 <?php
-
 declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
-
 use Ramsey\Uuid\Uuid;
-
 use Bcrypt\Bcrypt;
 
-final class SetupUsers extends AbstractMigration
+final class SetupUsersAndRoles extends AbstractMigration
 {
     /**
      * Change Method.
@@ -70,6 +67,17 @@ final class SetupUsers extends AbstractMigration
             'updatedatabase' => 1
         ];
 
+        $defaultRole = [
+            'id' => Uuid::uuid4(),
+            'role_name' => 'Default',
+            'create_user' => 0,
+            'create_table' => 0,
+            'delete_user' => 0,
+            'delete_table' => 0,
+            'view_users' => 0,
+            'updatedatabase' => 0
+        ];
+
         $adminUser = [
             'id' => Uuid::uuid4(),
             'firstName' => 'Admin',
@@ -89,6 +97,7 @@ final class SetupUsers extends AbstractMigration
 
         $users->insert($adminUser)->saveData();
         $roles->insert($adminRole)->saveData();
+        $roles->insert($defaultRole)->saveData();
         $user_roles->insert($adminUserRole)->saveData();
     }
 }
