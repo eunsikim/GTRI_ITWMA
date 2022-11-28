@@ -2,6 +2,7 @@
     require 'vendor/autoload.php';
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/register.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
     use Bcrypt\Bcrypt;
 
@@ -83,7 +84,6 @@
     echo $_SESSION['TWIG']->render('/views/register.html', [
         'title' => 'Login',
         'error' => $error, 
-        'isLogged' => isLogged(),
         'appName' => $_ENV['APP_NAME']
         ]) 
 ?>
