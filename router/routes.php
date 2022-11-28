@@ -13,6 +13,8 @@
         get('/users', './controllers/users.php');
     }
 
+    get('/profile', './controllers/profile.php');
+
     get('/t', './test.php');
     get('/t2', './test2.php');
     get('/t3', './controllers/test3.php');
@@ -32,3 +34,4 @@
     // The 404.php which is inside the views folder will be called
     // The 404.php has access to $_GET and $_POST
     any('/404','./controllers/404.php');
+

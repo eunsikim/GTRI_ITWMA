@@ -23,7 +23,6 @@
         {
             $users[]=$row;
         }
-
         return $users;
     }
     
