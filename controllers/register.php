@@ -79,8 +79,9 @@
                 $res = mysqli_stmt_get_result($stmt);
 
                 $sql2 = "INSERT INTO userroles(role_id, user_id) VALUES ('".$defaultRoleID[0]['id']."', '".$userID."');";
-                $res2 = mysqli_query($conn, $sql2);       
-                
+                $res2 = mysqli_query($conn, $sql2);    
+                   
+                mysqli_close($conn);
                 mysqli_stmt_close($stmt);
                 $error = 'none';
             }           
