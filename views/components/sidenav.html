@@ -3,9 +3,11 @@
     <div class="offcanvas-header d-flex flex-column justify-content-center align-items-center mt-3 ">
         <h1 class="font-Montserrat color-white em-2 f-weight-600 mb-3">Menu</h1>
         <div class="w-25 mb-2 color-accent" style="background-color: #F0AB20; height: 5px;"></div>
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded font-Montserrat f-weight-400" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border-color: #F0AB20; margin: 15px;" />
+        <div class="input-group rounded d-flex flex-column justify-content-center align-items-center">
+            <input name="search" id="search" type="search" class="form-control rounded font-Montserrat f-weight-400 mb-0" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border-color: #F0AB20; margin: 15px; width:90%" />
+            <ul class="list-group" id="result" style="width:90%; position:absolute; z-index:1100; top:100%; border-radius:0px 0px 10px 10px"></ul>
         </div>
+        
     </div>
     <div class="offcanvas-body">
         <div>
@@ -15,34 +17,33 @@
                         <a href="/{{module.1}}" class="nav-link text-white"> <span class="d-none d-sm-inline">{{module.0}}</span> </a>
                     </li>
                 {% endfor %}
-                {# <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Purchasing</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="/License_Tracking"class="nav-link text-white"style=""> <span class="d-none d-sm-inline">Licensing Tracking</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Asset Tracking</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Budget Management</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Issue Management</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Ticket Management</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Labor Management</span> </a>
-                </li>
-                <li class="nav-item mb-4">
-                    <a href="#" class="nav-link text-white"> <span class="d-none d-sm-inline">Procurement Management</span> </a>
-                </li>
-                <li class="nav-item mb-4 ">
-                    <a href="#" class="nav-link text-white "> <span class="d-none d-sm-inline">Self-Service</span> </a>
-                </li> #}
             </ul>
         </div>
     </div>
 </div>
+
+<script>
+    let modulesJson = $.parseJSON('{{ modules|json_encode()|raw }}')
+  
+    $(document).ready(function(){
+        $('#search').keyup(function() {
+            $('#result').html('');
+            var searchField = $('#search').val();
+            var expression = new RegExp(searchField, "i");
+
+            if(searchField){
+                $.each(modulesJson, function(key, value){
+                    if(value[0].search(expression) !== -1){
+                        $('#result').append(
+                            `<li class="list-group-item"><a href="/${value[1]}" style="text-decoration: none;">${value[0]}</a></li>`
+                        );
+                    }
+                })
+            }
+            else{
+                $('#result').html('');
+            }
+            
+        });
+    });
+</script>

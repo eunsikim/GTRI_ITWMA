@@ -46,7 +46,7 @@ DB_USERNAME=Username
 DB_PASSWORD=Password
 DB_NAME=DabaseName
 
-# Production Database
+# Development Database
 DB_SERVER_DEV=DatabaseAddressWithPort
 DB_HOST_DEV=DatabaseAddress
 DB_PORT_DEV=DatabasePort 

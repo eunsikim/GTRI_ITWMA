@@ -2,8 +2,10 @@
     require 'vendor/autoload.php';
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/register.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/mysql/config.php');
     use Bcrypt\Bcrypt;
+    use Ramsey\Uuid\Uuid;
 
     $title = 'Register';
     //  If the user is logged in, redirect to home view
@@ -55,7 +57,10 @@
         }
     
         else{
-            $sql = 'INSERT INTO users(id, firstName, lastName, email, password, question1, question2, question3) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?);';
+            $userID = Uuid::uuid4();
+            $defaultRoleID = getDefaultRoleID($conn);
+            // echo var_dump($defaultRoleID[0]['id']);
+            $sql = "INSERT INTO users(id, firstName, lastName, email, password, question1, question2, question3) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             $stmt = mysqli_stmt_init($conn);
     
             //	Check if statement fails
@@ -68,12 +73,15 @@
         
                 $encryptedPassword = $bcrypt->encrypt($form['password'],$bcrypt_version);
 
-                mysqli_stmt_bind_param($stmt, "sssssss", $form['firstName'], $form['lastName'], $form['email'], $encryptedPassword, $form['question1'], $form['question2'], $form['question3']);
+                mysqli_stmt_bind_param($stmt, "ssssssss", $userID, $form['firstName'], $form['lastName'], $form['email'], $encryptedPassword, $form['question1'], $form['question2'], $form['question3']);
         
                 mysqli_stmt_execute($stmt);
-        
                 $res = mysqli_stmt_get_result($stmt);
-                
+
+                $sql2 = "INSERT INTO userroles(role_id, user_id) VALUES ('".$defaultRoleID[0]['id']."', '".$userID."');";
+                $res2 = mysqli_query($conn, $sql2);    
+                   
+                mysqli_close($conn);
                 mysqli_stmt_close($stmt);
                 $error = 'none';
             }           
@@ -83,7 +91,5 @@
     echo $_SESSION['TWIG']->render('/views/register.html', [
         'title' => 'Login',
         'error' => $error, 
-        'isLogged' => isLogged(),
         'appName' => $_ENV['APP_NAME']
-        ]) 
-?>
+    ]);
