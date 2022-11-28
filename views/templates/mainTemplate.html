@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% include 'views/templates/header.html' with {'title' : title} %}
+        {% include 'views/templates/header.html' %}
     </head>
     <body class="backgroundCol">
         <div class="container-fluid p-0">
-            {% include 'views/components/navbar.html' with {'isLogged' : isLogged, 'userName' : userName, 'admin': admin} %}
+            {# Include the navigation bars, these require a boolean variable to check if the user has access to the users table/view and the user's name #}
+            {% include 'views/components/navbar.html' %}
             {% block content %}{% endblock %}
         </div>
     </body>

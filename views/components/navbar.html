@@ -14,9 +14,6 @@
         <div class="d-flex  align-items-center nav-item dropdown-center me-3">
             <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400 fs-5">
                 {{userName}}
-                {% if userType == '1' %}
-                    <i class="bi bi-star-fill color-accent"></i>
-                {% endif %}
             </span>
     
             <span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
@@ -30,10 +27,10 @@
                 <li>
                     <a class="btn font-Montserrat f-weight-400" href="/">Dashboard</a>
                 </li>
-                {% if admin %}
-                <li>
-                    <a class="btn font-Montserrat f-weight-400" href="users">Users</a>
-                </li>
+                {% if userView %}
+                    <li>
+                        <a class="btn font-Montserrat f-weight-400" href="users">Users</a>
+                    </li>
                 {% endif %}
                 <li><a class="btn font-Montserrat f-weight-400" href="/profile">Profile</a></li>
                 <li><a class="btn font-Montserrat f-weight-400" href="#">Settings</a></li>
