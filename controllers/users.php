@@ -22,7 +22,6 @@
         {
             $users[]=$row;
         }
-
         return $users;
     }
     

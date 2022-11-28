@@ -4,6 +4,14 @@ require_once($_SERVER['DOCUMENT_ROOT']."/router/router.php");
 
 require_once($_SERVER['DOCUMENT_ROOT']."/modules/appRoutes.php");
 //  GET
+
+
+get('/example', './example.php');
+get('/post1', './postExample.php');
+
+post('/post1', './postExample.php');
+
+
 get('/', './controllers/home.php');
 get('/login', './controllers/login.php');
 get('/register', './controllers/register.php');
@@ -34,3 +42,4 @@ post('/add', './php/users/add.php');
 // The 404.php which is inside the views folder will be called
 // The 404.php has access to $_GET and $_POST
 any('/404','./controllers/404.php');
+

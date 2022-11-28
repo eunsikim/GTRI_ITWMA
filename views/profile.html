@@ -16,35 +16,65 @@
 
         <div class="left">               
             <img src="/img/icons/rofile.jpg" style="width:60%;"> <br> <br>
-            <button> remove</button> <button> change</button>
+            <button  type="button" class="btn btn-secondary"> remove</button> 
+            <button  type="button" class="btn button-accent"> change</button>
             
         </div>
     
-        <div class="right">
-            <button type="button" class="btn btn-light" ><strong> Overview</strong></button>
-            <button type="button" class="btn btn-light" ><strong> Assets</strong></button>
-            <button type="button" class="btn btn-light" ><strong> Tickets</strong></button>
-            <button type="button" class="btn btn-light" ><strong> Checkouts</strong></button>
+        <!--
+        <h1>{{user.email}}</h1>
+        -->
 
-            <!-- This is hr lne -->
-            <hr style="height:5px;border: width 3px;color:gray;background-color:#f0ab20">
+        <h1>Profile</h1>
+            <div class="right">
+                <button type="button" class="btn btn-secondary" ><strong> Overview</strong></button>
 
-            <!-- This is from navbar.html line 10-->
-            <div class="w-25 mb-2 color-accent" style="background-color: #f0ab20; height: 5px;"></div>
+                <!--
+                <button type="button" class="btn btn-light" ><strong> Assets</strong></button>
+                <button type="button" class="btn btn-light" ><strong> Tickets</strong></button>
+                <button type="button" class="btn btn-light" ><strong> Checkouts</strong></button>
+                -->
 
-            First  Name: <input type="text"> <br> 
-            Last Name: <input type="text"> <br>
-            Email: <input type="text"> <br>
-            Password: <input type="text"> <br>
-            High School Graduation Year: <input type="text"> <br>
-            First Pet: <input type="text"> <br>
-            Place of Birth (City): <input type="text"> <br>
+                <br> </br>
 
-            <br>
-            <button> save</button>
-            <button> cancel</button>
-        </div>
+                <!-- This is from navbar.html line 10-->
+                <!--Class name changed from w-25 to w-100-->
+                <div class="w-100 mb-2 color-accent" style="background-color: #f0ab20; height: 5px;"></div>
 
+                <!--
+                <label>Name
+                    <input id="User" name="Name" type="text"/>
+                  </label>
+                -->
+
+                <form action="edit" method="post">
+                    <table>
+                        <tr> <td>First Name: </td>
+                            <td><input type="text" size="30" value="{{user.firstName}}"></td> </tr>
+
+                        <tr> <td>Last Name: </td>
+                            <td><input type="text" size="30" value="{{user.lastName}}"></td> </tr>
+
+                        <tr><td>Email: </td>
+                            <td><input type="text" size="30" value="{{user.email}}"></td> </tr>
+
+                        <tr> <td  style="padding:0px 5px 0px 0px;">High School Graduation Year: </td>
+                            <td><input type="text" size="30" value="{{user.question1}}"></td> </tr>
+
+                        <tr> <td>First Pet: </td>
+                            <td><input type="text" size="30" value="{{user.question2}}"></td> </tr>
+
+                        <tr> <td>Place of Birth (City): </td>
+                            <td><input type="text" size="30" value="{{user.question3}}"></td> </tr>
+                    </table>
+                    
+                    <button type="button" class="btn btn-secondary"> Cancel</button>
+                    <button  type="submit" class="btn button-accent"> Save </button>
+
+                </form>
+
+
+            </div>
     </div>
     
 {% endblock %}
