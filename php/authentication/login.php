@@ -41,3 +41,59 @@ function loginUser($conn, $id, $password){
 		return $idExists;
 	}
 }
+
+function getRoleIDs($conn, $userID){
+	$sql = 'SELECT role_id FROM userroles WHERE user_id = ?;';
+
+	$stmt = mysqli_stmt_init($conn);
+
+	if(!mysqli_stmt_prepare($stmt, $sql)){
+		return 4;
+	}
+	else{
+		mysqli_stmt_bind_param($stmt, "s", $userID);
+		mysqli_stmt_execute($stmt);
+		$res = mysqli_stmt_get_result($stmt);
+
+		while($row = mysqli_fetch_assoc($res)){
+			$roleIDs[] = $row;
+		}
+
+		mysqli_stmt_close($stmt);
+	}
+
+	return $roleIDs;
+}
+
+function getRoles($conn, $userID){
+	$roleIDs = getRoleIDs($conn, $userID);
+
+	foreach($roleIDs as $roleID){
+
+		$sql = 'SELECT * FROM roles WHERE id = ?;';
+
+		$stmt = mysqli_stmt_init($conn);
+
+		if(!mysqli_stmt_prepare($stmt, $sql)){
+			return 4;
+		}
+		else{
+			mysqli_stmt_bind_param($stmt, "s", $roleID['role_id']);
+			mysqli_stmt_execute($stmt);
+			$res = mysqli_stmt_get_result($stmt);
+			// if(!$row = mysqli_fetch_assoc($res)){
+			// 	return false;
+			// }
+
+			if($row = mysqli_fetch_assoc($res)){
+				$roles[] = $row;
+			}
+
+			mysqli_stmt_close($stmt);
+
+			
+		}
+	}
+
+	return $roles;
+}
