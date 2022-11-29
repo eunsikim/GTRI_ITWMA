@@ -10,6 +10,9 @@
 .f-weight-400{
     font-weight: 400;
 }
+.f-weight-500{
+    font-weight: 500;
+}
 .f-weight-600{
     font-weight: 600;
 }
@@ -56,6 +59,9 @@
 
 .backgroundCol{
     background-color: #ffffff;
+}
+.bord-primaryColor{
+    border-color: #18345e;
 }
 
 
