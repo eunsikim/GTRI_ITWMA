@@ -1,77 +1,192 @@
 {% extends 'views/templates/mainTemplate.html' %}
 
 {% block content %}
-    <div class="container-fluid" style="padding: 20px 50px 0px 350px;">
+    <div class="container rppit-mc-p1">
+        <h1 class="color-accent font-Montserrat fw-bold display-5 mt-4 mb-4 ms-3">Profile</h1>
+        
+        <div class="w-100 p-3">
 
-        <style>
-            .left{
-                width: 30%;
-                float: left;
-            }
-            .right{
-                width: 70%;
-                float: left;
-            }
-        </style>
+            <!--
+            <button type="button" class="btn btn-light" ><strong> Assets</strong></button>
+            <button type="button" class="btn btn-light" ><strong> Tickets</strong></button>
+            <button type="button" class="btn btn-light" ><strong> Checkouts</strong></button>
+            -->
 
-        <div class="left">               
-            <img src="/img/icons/rofile.jpg" style="width:60%;"> <br> <br>
-            <button  type="button" class="btn btn-secondary"> remove</button> 
-            <button  type="button" class="btn button-accent"> change</button>
-            
+            <!-- This is from navbar.html line 10-->
+            <!--Class name changed from w-25 to w-100-->
+
+
+            <!--
+            <label>Name
+                <input id="User" name="Name" type="text"/>
+                </label>
+            -->
+
+            <form action="profile" method="POST">
+                {# <table>
+                    <tr> 
+                        <td class="font-Montserrat f-weight-600 color-primary">First Name: </td>
+                        <td><input id="firstName" class="rppit-inbx-s1" name="firstName" type="text" size="30" value="{{currentUser.firstName}}" disabled></td> 
+                    </tr>
+
+                    <tr class="mt-4"> 
+                        <td class="font-Montserrat f-weight-600 color-primary mt-4">Last Name: </td>
+                        <td><input id="lastName" class="rppit-inbx-s1 mt-4" name="lastName" type="text" size="30" value="{{currentUser.lastName}}" disabled></td> 
+                    </tr>
+
+                    <tr>
+                        <td class="font-Montserrat f-weight-600 color-primary">Email: </td>
+                        <td><input id="email" class="rppit-inbx-s1 mt-4" name="email" type="text" size="30" value="{{currentUser.email}}" disabled></td> 
+                    </tr>
+
+                    <tr> 
+                        <td class="font-Montserrat f-weight-600 color-primary mt-4" >High School Graduation Year: </td>
+                        <td><input id="question1" class="rppit-inbx-s1 mt-4" name="question1" type="text" size="30" value="{{currentUser.question1}}" disabled></td> 
+                    </tr>
+
+                    <tr> 
+                        <td class="font-Montserrat f-weight-600 color-primary">First Pet: </td>
+                        <td><input id="question2" class="rppit-inbx-s1 mt-4" name="question2" type="text" size="30" value="{{currentUser.question2}}" disabled></td> 
+                    </tr>
+
+                    <tr> 
+                        <td class="font-Montserrat f-weight-600 color-primary">Place of Birth (City): </td>
+                        <td><input id="question3" class="rppit-inbx-s1 mt-4" name="question3" type="text" size="30" value="{{currentUser.question3}}" disabled></td> 
+                    </tr> #}
+                </table>
+
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">First Name: </label>
+                    <input id="firstName" name="firstName" type="text" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.firstName}}" disabled/>
+                </div>
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">Last Name: </label>
+                    <input id="lastName" name="lastName" type="text" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.lastName}}" disabled/>
+                </div>
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">Email: </label>
+                    <input id="email" name="email" type="email" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.email}}" disabled/>
+                </div>
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">High School Graduation Year: </label>
+                    <input id="question1" name="question1" type="text" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.question1}}" disabled/>
+                </div>
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">First Pet: </label>
+                    <input id="question2" name="question2" type="text" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.question2}}" disabled/>
+                </div>
+                <div class="d-flex justify-content-start align-items-center flex-wrap mb-4">
+                    <label class="form-label font-Montserrat f-weight-600 color-primary me-4" for="form3Example3">Place of Birth (City): </label>
+                    <input id="question3" name="question3" type="text" class=" col-8 form-control rppit-inbx-s2" value="{{currentUser.question3}}" disabled/>
+                </div>
+
+
+                <button id="changeButton" type="button" class="btn button-accent font-Montserrat f-weight-400 me-4 mb-4" value="change">Change</button>
+                <input id="submitButton" type="submit" class="btn button-accent font-Montserrat f-weight-400 mb-4" name="changeProfileInfo" value="Save" disabled>
+            </form>
+
+            <button id="changePasswordButton" type="button" class="btn button-accent font-Montserrat f-weight-400 mb-4" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Change Password</button>
         </div>
-    
-        <!--
-        <h1>{{user.email}}</h1>
-        -->
 
-        <h1>Profile</h1>
-            <div class="right">
-
-                <!--
-                <button type="button" class="btn btn-light" ><strong> Assets</strong></button>
-                <button type="button" class="btn btn-light" ><strong> Tickets</strong></button>
-                <button type="button" class="btn btn-light" ><strong> Checkouts</strong></button>
-                -->
-
-                <!-- This is from navbar.html line 10-->
-                <!--Class name changed from w-25 to w-100-->
-                <div class="w-100 mb-2 color-accent" style="background-color: #f0ab20; height: 5px;"></div>
-
-                <!--
-                <label>Name
-                    <input id="User" name="Name" type="text"/>
-                  </label>
-                -->
-
-                <form action="edit" method="post">
-                    <table>
-                        <tr> <td>First Name: </td>
-                            <td><input type="text" size="30" value="{{user.firstName}}"></td> </tr>
-
-                        <tr> <td>Last Name: </td>
-                            <td><input type="text" size="30" value="{{user.lastName}}"></td> </tr>
-
-                        <tr><td>Email: </td>
-                            <td><input type="text" size="30" value="{{user.email}}"></td> </tr>
-
-                        <tr> <td  style="padding:0px 5px 0px 0px;">High School Graduation Year: </td>
-                            <td><input type="text" size="30" value="{{user.question1}}"></td> </tr>
-
-                        <tr> <td>First Pet: </td>
-                            <td><input type="text" size="30" value="{{user.question2}}"></td> </tr>
-
-                        <tr> <td>Place of Birth (City): </td>
-                            <td><input type="text" size="30" value="{{user.question3}}"></td> </tr>
-                    </table>
-                    
-                    <button type="button" class="btn btn-secondary"> Cancel</button>
-                    <button  type="submit" class="btn button-accent"> Save </button>
-
-                </form>
-
-
-            </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            {% if error == '1' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Something Went Wrong!</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '2' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Some inputs were empty.</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '3' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">New Password and Confirm New Password do not match</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '4' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Old Password do not match</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '5' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Password must be at least 8 characters long.</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '6' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Password must contain at least one special character (#, &, ^, *, %, @, $, !).</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '7' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Password must contain at least one upper case letter and one lower case letter.</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == '8' %}
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Password must contain at least one number.</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% elseif error == 'none' %}
+                <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">Success</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </div>
+
+    <script>
+        $('#changeButton').click(() => {enableInputs()});
+
+
+        function enableInputs(){
+            $('#firstName').prop('disabled', false);
+            $('#lastName').prop('disabled', false);
+            $('#email').prop('disabled', false);
+            $('#question1').prop('disabled', false);
+            $('#question2').prop('disabled', false);
+            $('#question3').prop('disabled', false);
+            $('#submitButton').prop('disabled', false);
+            $('#changeButton').removeClass('button-accent').addClass('btn-secondary');
+            $('#changeButton').html('Cancel');
+            $('#changeButton').click(() => {disableInputs()});
+        }
+
+        function disableInputs(){
+            $('#firstName').prop('disabled', true);
+            $('#lastName').prop('disabled', true);
+            $('#email').prop('disabled', true);
+            $('#question1').prop('disabled', true);
+            $('#question2').prop('disabled', true);
+            $('#question3').prop('disabled', true);
+            $('#submitButton').prop('disabled', true);
+            $('#changeButton').removeClass('btn-secondary').addClass('button-accent');
+            $('#changeButton').html('Change');
+            $('#changeButton').click(() => {enableInputs()});
+        }
+    </script>
+
+    {% include 'views/components/modals/profile/changePasswordModal.html' %}
     
 {% endblock %}

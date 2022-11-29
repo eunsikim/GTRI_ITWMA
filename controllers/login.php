@@ -27,9 +27,9 @@
             if($row !== false){
                 if($row['approved'] === '1'){
                     $_SESSION['logged_in'] = true;
-                    $_SESSION['user'] = $row['firstName'];
-                    $_SESSION['approved'] = $row['approved'];
-                    $_SESSION['userID'] = $row['id'];
+
+                    $_SESSION['current_user'] = $row;
+
                     $_SESSION['user_roles'] = getRoles($conn, $row['id']);
                     header('Location: /');
                     exit();
@@ -46,7 +46,7 @@
 
     if(isset($_POST['logout']) && $_POST['logout'] == 'Logout'){
         $_SESSION['logged_in'] = false;
-        unset($_SESSION['user']);
+        unset($_SESSION['current_user']);
         header('Location: /');
     }
 

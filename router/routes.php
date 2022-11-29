@@ -30,6 +30,8 @@
     post('/remove', './php/users/remove.php');
     post('/add', './php/users/add.php');
 
+    post('/profile', './controllers/profile.php');
+
     // For GET or POST
     // The 404.php which is inside the views folder will be called
     // The 404.php has access to $_GET and $_POST

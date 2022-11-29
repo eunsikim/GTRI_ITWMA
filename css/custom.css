@@ -90,6 +90,17 @@
 	border-style: none;
 }
 
+/* Red Pepper IT Input Box Style 2 */
+.rppit-inbx-s2{
+    background-color: #F4F2F2;
+    align-items: center;
+	min-width: 300px;
+    max-width: 40%;
+	height: 3rem;
+	border-radius: 6px;
+	border-style: none;
+}
+
 .parentWidth{
     width:100%
 }
