@@ -1,6 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/login.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
     require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
     
     $title = 'Login';
@@ -26,8 +27,10 @@
             if($row !== false){
                 if($row['approved'] === '1'){
                     $_SESSION['logged_in'] = true;
-                    $_SESSION['user'] = $row['firstName'];
-                    $_SESSION['approved'] = $row['approved'];
+
+                    $_SESSION['current_user'] = $row;
+
+                    $_SESSION['user_roles'] = getRoles($conn, $row['id']);
                     header('Location: /');
                     exit();
                 }
@@ -43,7 +46,7 @@
 
     if(isset($_POST['logout']) && $_POST['logout'] == 'Logout'){
         $_SESSION['logged_in'] = false;
-        unset($_SESSION['user']);
+        unset($_SESSION['current_user']);
         header('Location: /');
     }
 
@@ -51,7 +54,6 @@
     echo $_SESSION['TWIG']->render('./views/login.html', [
         'title' => 'Login',
         'error' => $error, 
-        'isLogged' => isLogged(),
         'appName' => $_ENV['APP_NAME']
-        ]) 
-?>
+    ]);
+
