@@ -59,7 +59,7 @@
         return $userRoles;
     }
 
-    echo '<pre>',var_dump(getRoles($conn)),'</pre>';
+
     
     $error = null;
     if(isset($_GET['error'])){
