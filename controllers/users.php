@@ -12,16 +12,54 @@
 
     //  Get all users
     function getUsers($conn){
-        $sqlriz = "Select * FROM `users`";
+        $sqlriz = "SELECT * FROM `users`";
 
         $res = mysqli_query($conn,$sqlriz);
 
-        while($row=mysqli_fetch_object($res))
+        while($row=mysqli_fetch_assoc($res))
         {
             $users[]=$row;
         }
         return $users;
     }
+
+    function getRoles($conn){
+        $sqlriz = "SELECT id, role_name FROM `roles`";
+
+        $res = mysqli_query($conn,$sqlriz);
+
+        while($row=mysqli_fetch_assoc($res))
+        {
+            $roles[]=$row;
+        }
+        return $roles;
+    }
+
+    function getUserRole($conn, $userID){
+        $sql = "SELECT userroles.user_id, userroles.role_id, roles.role_name, users.email FROM userroles JOIN roles ON userroles.role_id = roles.id JOIN users ON userroles.user_id = users.id WHERE user_id = '".$userID."'";
+
+        $res = mysqli_query($conn, $sql);
+
+        while($row=mysqli_fetch_assoc($res))
+        {
+            $userRoles[]=$row;
+        }
+        return $userRoles;
+    }
+
+    function getUserRoles($conn){
+
+        $userRoles = array();
+
+        $users = getUsers($conn);
+        foreach($users as $user){
+            $userRoles[$user['id']] = getUserRole($conn, $user['id']);
+        }
+
+        return $userRoles;
+    }
+
+    echo '<pre>',var_dump(getRoles($conn)),'</pre>';
     
     $error = null;
     if(isset($_GET['error'])){
@@ -44,4 +82,6 @@
         'error' => $error, 
         'res' => $res, 
         'users' => getUsers($conn),
+        'userRoles' => getUserRoles($conn),
+        'roles' => getRoles($conn)
     ]);

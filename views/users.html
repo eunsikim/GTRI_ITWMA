@@ -20,6 +20,7 @@
                     <th data-field="lastName" data-sortable="true">Last Name</th>
                     <th data-field="email" data-sortable="true">Email</th>
                     <th data-field="status" data-sortable="true">Status</th>
+                    <th data-field="roles" data-sortable="false">Roles</th>
                     <th data-field="actions" data-sortable="false">Actions</th>
                 </tr>
             </thead>
@@ -41,7 +42,16 @@
                             
                         </td>
                         <td>
-                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row = "{{user.firstName}},{{user.lastName}},{{user.email}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
+                            {% for role in userRoles[user.id] %}
+                                {% if user.id == role.user_id %}
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">{{role.role_name}}</small>
+                                {% else %}
+                                    {{role.user_id}}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-roles="{{roles | json_encode}}" data-userroles="{{userRoles[user.id] | json_encode}}" data-row = "{{user.firstName}},{{user.lastName}},{{user.email}},{{user.id}},{{user.approved}}" id="editButton{{counter}}">
                                 edit
                             </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" id="removeButton{{counter}}" data-row = "{{user.firstName}},{{user.lastName}},{{user.id}}">
@@ -49,20 +59,57 @@
                             </button>
                             <script defer>
                                 $("#editButton{{counter}}").click(function() {
-                                    let row = $("#editButton{{counter}}").data("row").split(",")
+                                    
+                                    let userRoles = $("#editButton{{counter}}").data("userroles");
+                                    console.log(userRoles)
+                                    let roles = $("#editButton{{counter}}").data("roles")
+                                    console.log(roles)
+                                    let row = $("#editButton{{counter}}").data("row").split(",");
                                     console.log(row)
                                     $("#mod-in-firstName").val(row[0])
                                     $("#mod-in-lastName").val(row[1])
                                     $("#mod-in-email").val(row[2])
                                     $("#mod-in-id").val(row[3])
                                     $("#mod-in-row").val(`${row[0]},${row[1]},${row[2]},${row[3]},${row[4]}`)
-                                    console.log(row[4])
+                                    
                                     if(row[4] == 1){
                                         $("#approvedCheckbox").prop('checked', true);
                                     }
                                     else{
                                         $("#approvedCheckbox").prop('checked', false);
                                     }
+                                    let currentRoles = [];
+                                    userRoles.forEach(e => {
+                                        currentRoles.push(e['role_id']);
+                                    })
+
+                                    console.log(currentRoles);
+
+                                    roles.forEach(e => {
+                                        if(currentRoles.includes(e['id'])){
+                                            $('#roles').append(`
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name=${e['role_name']} checked>
+                                                    <input name='${e['role_name']}_id' value=${e['id']}  hidden>
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        ${e['role_name']}
+                                                    </label>
+                                                </div>
+                                            `)
+                                        }
+                                        else{
+                                            $('#roles').append(`
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name=${e['role_name']}>
+                                                    <input name='${e['role_name']}_id' value=${e['id']}  hidden>
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        ${e['role_name']}
+                                                    </label>
+                                                </div>
+                                            `)
+                                        }
+                                        
+                                    }) 
                                 });
                             </script>
                             <script defer>
