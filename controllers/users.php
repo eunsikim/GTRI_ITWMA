@@ -2,12 +2,10 @@
     $title = 'Users';
     // If the user is not logged in, redirect to login view
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
 
     if(!isLogged()){
         header('Location: login');
-    }
-    elseif(!isLogged()){
-        header('Location: /');
     }
 
     require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
@@ -22,7 +20,6 @@
         {
             $users[]=$row;
         }
-
         return $users;
     }
     
@@ -37,14 +34,14 @@
     }
 
     echo $_SESSION['TWIG']->render('views/users.html', [
-        'title' => $title,
+        'title' => $title, //Expected by the header
+        'userName' => $_SESSION['current_user']['firstName'], //Expected for nav bar user's name display
+        'userView' => checkPrivilege('view_users', $_SESSION['user_roles']), //Expected for nav bar to show (or not) the users table view
+        'rolesView' => checkPrivilege('view_roles', $_SESSION['user_roles']),
+        'appName' => $_ENV['APP_NAME'], //Expected for nav bar to show name of the application
+        'modules' => $_SERVER['MODULE_PATHS'], //Expected side navbar
+
         'error' => $error, 
         'res' => $res, 
-        'userName' => $_SESSION['user'],
-        'isLogged' => isLogged(),
         'users' => getUsers($conn),
-        'appName' => $_ENV['APP_NAME'],
-        'userType' => $_ENV['USER_TYPE'],
-        'admin' => isAdmin(),
-        'modules' => $_SERVER['MODULE_PATHS']
     ]);

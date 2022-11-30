@@ -1,1 +1,27 @@
-<h1>License Tracking</h1>
+<div class="container">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let massPopChart = new Chart(myChart, {
+        type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data:{
+            labels:['Over Licensed', 'Under Licensed', 'In Compliance'],
+            datasets:[{
+                label:'Compliance Status',
+                data:[
+                    "{{widgetData['License_Tracking']['overLicensed']}}", "{{widgetData['License_Tracking']['underLicensed']}}", "{{widgetData['License_Tracking']['inCompliance']}}"
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ]
+            }]
+        },
+        options:{}
+    });
+</script>
+

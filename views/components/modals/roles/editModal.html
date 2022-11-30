@@ -1,0 +1,28 @@
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Role</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="roles" method="POST">
+                    <div id="edit-form-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button name="edit" value="edit" type="submit" class="btn button-accent">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const myModalEl = document.getElementById('editModal');
+
+    myModalEl.addEventListener('hidden.bs.modal', event=>{
+        document.getElementById('edit-form-body').innerHTML = "";
+    })
+</script>

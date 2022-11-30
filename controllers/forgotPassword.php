@@ -3,7 +3,7 @@
     
     // echo $_SESSION['TWIG']->render('/views/forgotPassword.html', [
     //     'title' => $title,
-    //     // 'userName' => $_SESSION['user'],
+    //     // 'userName' => $_SESSION['firstName'],
     //     // 'isLogged' => isLogged(),
     //     // 'admin' => $_ENV['USER_TYPE'],
     //     'appName' => $_ENV['APP_NAME']
