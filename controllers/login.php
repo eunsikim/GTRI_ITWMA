@@ -2,7 +2,7 @@
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/login.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/authentication.php");
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
-    require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
     
     $title = 'Login';
 
@@ -31,6 +31,39 @@
                     $_SESSION['current_user'] = $row;
 
                     $_SESSION['user_roles'] = getRoles($conn, $row['id']);
+
+                    //
+                    $moduleColumn = $_SERVER['moduleColumn'];
+
+                    $usermodule = array();
+                    $sql3 = "SELECT module_name from modules JOIN usermodules on modules.id = usermodules.module_id 
+                    JOIN users on users.id = usermodules.user_id where users.id = '".$_SESSION['current_user']['id']."';";
+                    
+                    $result = mysqli_query($conn, $sql3);
+                    //echo '<pre>',var_dump($result),'</pre>';
+                    while($mod = mysqli_fetch_array($result)){
+                        array_push($usermodule, $mod['module_name']);
+                    }
+                    $unpinnedmodules = array_intersect($moduleColumn, $usermodule);
+                    
+                    foreach($unpinnedmodules as $value)
+                    {
+                        for ($i = 0; $i < $length; $i++)
+                        {
+                            if($value == $_SERVER['MODULE_PATHS'][$i][1])
+                            {
+                                array_push($_SERVER['PINNED_MODULES'], array(
+                                    json_decode(file_get_contents($_SERVER['MODULE_PATHS'].'/app.json'), true)['module_name'], 
+                                    json_decode(file_get_contents($_SERVER['MODULE_PATHS'].'/app.json'), true)['module_route'], 
+                                    json_decode(file_get_contents($_SERVER['MODULE_PATHS'].'/app.json'), true)['dashboard_path'], 
+                                    json_decode(file_get_contents($_SERVER['MODULE_PATHS'].'/app.json'), true)['dashboard_controller_path'], 
+                                    $_SERVER['MODULE_PATHS']
+                                ));
+                            }
+                        }
+                    }                   
+
+                    
                     header('Location: /');
                     exit();
                 }

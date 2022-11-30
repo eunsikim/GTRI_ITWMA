@@ -3,7 +3,7 @@
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
-    require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
     use Ramsey\Uuid\Uuid;
 
     if(!isLogged()){

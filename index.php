@@ -24,7 +24,7 @@ $_SERVER['MODULE_PATHS'] = $array;
 $dotenv = Dotenv\Dotenv::createMutable('./');
 $dotenv->load();
 
-require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
 
 //Adding module names to array
 $moduleID = Uuid::uuid4();
@@ -43,7 +43,7 @@ for ($i = 0; $i < $length; $i++){
 }
 
 // echo '<pre>',var_dump($modulenames),'</pre>';
-// echo '<pre>',var_dump($ModuleColumn),'</pre>';
+
 
 $mismatchedmodules = array_diff($ModuleColumn,$modulenames);
 // echo '<pre>',var_dump($mismatchedmodules),'</pre>';
@@ -65,25 +65,14 @@ foreach($modulenames as $value){
     }  
 }
 
-// Query all the user's module in userModules table
+$_SERVER['moduleColumn'] = $ModuleColumn;
+
 $_SERVER['PINNED_MODULES'] = array();
 
-$usermodule = array();
-$sql3 = "SELECT module_name from modules JOIN usermodules on modules.id = usermodules.module_id 
-JOIN users on users.id = usermodules.user_id";
-$result = mysqli_query($conn, $sql3);
-//echo '<pre>',var_dump($result),'</pre>';
-while($mod = mysqli_fetch_array($result)){
-    array_push($usermodule, $mod);
-}
-$unpinnedmodules = array_intersect($ModuleColumn,$result);
-foreach ($unpinnedmodules as $value) 
-{
-  if (in_array($value, $ModuleColumn))
-  {
-    
-  }
-}
+//echo '<pre>',var_dump($_SERVER['moduleColumn']),'</pre>';
+
+// Query all the user's module in userModules table
+// 
 
 mysqli_close($conn);
 

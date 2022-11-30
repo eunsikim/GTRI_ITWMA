@@ -1,7 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
-    require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
 
     $title = 'Home';
 
@@ -17,6 +17,7 @@
         require($module[3]);
     }
     
+    //echo '<pre>'.var_dump($_SERVER['PINNED_MODULES']).'</pre>';
 
     echo $_SESSION['TWIG']->render('/views/home.html', [
         'title' => $title, //Expected by the header

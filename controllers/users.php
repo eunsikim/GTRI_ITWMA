@@ -8,7 +8,7 @@
         header('Location: login');
     }
 
-    require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
 
     //  Get all users
     function getUsers($conn){

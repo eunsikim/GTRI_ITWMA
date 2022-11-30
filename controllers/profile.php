@@ -2,7 +2,7 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/authentication.php');
     require_once($_SERVER['DOCUMENT_ROOT']."/php/authentication/register.php");
     require_once($_SERVER['DOCUMENT_ROOT'].'/php/authentication/roles.php');
-    require_once($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
+    include($_SERVER['DOCUMENT_ROOT']."/mysql/config.php");
     use Bcrypt\Bcrypt;
 
     $title = 'Profile';
