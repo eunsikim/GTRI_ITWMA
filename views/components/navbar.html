@@ -20,17 +20,22 @@
             </a>
     
             <ul class="dropdown-menu dropdown-menu-end" style="border: 0.5px solid #000000;">
-                
                 <li>
                     <a class="btn font-Montserrat f-weight-400 color-primary" href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a class="btn font-Montserrat f-weight-400 color-primary" href="/profile">Profile</a>
                 </li>
                 {% if userView %}
                     <li>
                         <a class="btn font-Montserrat f-weight-400 color-primary" href="users">Users</a>
                     </li>
                 {% endif %}
-                <li><a class="btn font-Montserrat f-weight-400 color-primary" href="/profile">Profile</a></li>
-
+                {% if rolesView %}
+                    <li>
+                        <a class="btn font-Montserrat f-weight-400 color-primary" href="roles">Roles</a>
+                    </li>
+                {% endif %}
                 <li>
                     <form action="logout" method="POST">
                         <input type="submit" class="btn font-Montserrat f-weight-400" name="logout" value="Logout">

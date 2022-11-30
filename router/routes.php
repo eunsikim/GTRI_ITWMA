@@ -12,6 +12,11 @@
     if(isset($_SESSION['user_roles']) && checkPrivilege('view_users', $_SESSION['user_roles'])){
         get('/users', './controllers/users.php');
     }
+    if(isset($_SESSION['user_roles']) && checkPrivilege('view_roles', $_SESSION['user_roles'])){
+        get('/roles', './controllers/roles.php');
+        post('/roles', './controllers/roles.php');
+    }
+
 
     get('/profile', './controllers/profile.php');
 

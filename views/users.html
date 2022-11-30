@@ -4,8 +4,8 @@
 
 
     <div class="container-fluid rppit-mc-p1">
-    
-        <div class="mb-5">
+        <h1 class="color-accent font-Montserrat fw-bold display-5 mt-4 mb-4 ms-3">Users</h1>
+        <div class="w-100 p-3">
             <table id="table" 
                      data-toggle="table"
                      data-search="true"
@@ -36,7 +36,7 @@
                                 <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2">Approved</small>
                             {% else %}
                                 {# <span class="badge rounded-pill text-bg-secondary font-Montserrat f-weight-300 em-1">Pending</span> #}
-                                <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">Peding</small>
+                                <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">Pending</small>
                             {% endif %}
                             
                         </td>
@@ -78,8 +78,8 @@
                 {% endfor %}
             </tbody>
         </table>
+        <button type="button" class="btn button-accent font-Montserrat f-weight-400 mt-4" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
         </div>
-        <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#createModal" >Add New User</button>
     </div>
 
 
