@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit User</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -29,6 +29,12 @@
                         <label class="form-label" for="form3Example3">Email address</label>
                     </div>
 
+                    <div id="roles">
+                        
+                    </div>
+                        
+
+
                     <!-- Approve  -->
                     <div class="form-outline mb-4">
                         <div class="form-check form-switch">
@@ -49,3 +55,11 @@
         </div>
     </div>
   </div>
+
+  <script>
+    const myModalEl = document.getElementById('editModal');
+
+    myModalEl.addEventListener('hidden.bs.modal', event=>{
+        document.getElementById('roles').innerHTML = "";
+    })
+</script>

@@ -8,32 +8,35 @@
   
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-unstyled">   
             <li class="nav-item">
-                <a class="navbar-brand font-Montserrat f-weight-700" href="/">{{appName}}</a>
+                
+                <a class="navbar-brand font-Montserrat f-weight-700 color-primary em-1h" href="/"><i class="bi bi-house-door-fill color-accent"></i> {{appName}}</a>
             </li>
         </ul>
         <div class="d-flex  align-items-center nav-item dropdown-center me-3">
-            <span class="nav-item me-3 ms-auto font-Montserrat f-weight-400 fs-5">
+            <a class="nav-item me-3 ms-auto font-Montserrat f-weight-400 fs-5 color-primary" style="text-decoration: none;" href="/profile">
                 {{userName}}
-            </span>
-    
-            <span><i class="nav-item me-3 bi bi-file-person-fill"></i></span>
-    
+            </a>
             
             <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             </a>
     
             <ul class="dropdown-menu dropdown-menu-end" style="border: 0.5px solid #000000;">
-                
                 <li>
-                    <a class="btn font-Montserrat f-weight-400" href="/">Dashboard</a>
+                    <a class="btn font-Montserrat f-weight-400 color-primary" href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a class="btn font-Montserrat f-weight-400 color-primary" href="/profile">Profile</a>
                 </li>
                 {% if userView %}
                     <li>
-                        <a class="btn font-Montserrat f-weight-400" href="users">Users</a>
+                        <a class="btn font-Montserrat f-weight-400 color-primary" href="users">Users</a>
                     </li>
                 {% endif %}
-                <li><a class="btn font-Montserrat f-weight-400" href="#">Profile</a></li>
-                <li><a class="btn font-Montserrat f-weight-400" href="#">Settings</a></li>
+                {% if rolesView %}
+                    <li>
+                        <a class="btn font-Montserrat f-weight-400 color-primary" href="roles">Roles</a>
+                    </li>
+                {% endif %}
                 <li>
                     <form action="logout" method="POST">
                         <input type="submit" class="btn font-Montserrat f-weight-400" name="logout" value="Logout">

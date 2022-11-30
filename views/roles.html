@@ -1,0 +1,142 @@
+{% extends 'views/templates/mainTemplate.html' %}
+
+{% block content %}
+    <div class="container-fluid rppit-mc-p1">
+        <h1 class="color-accent font-Montserrat fw-bold display-5 mt-4 mb-4 ms-3">Roles</h1>
+        <div class="w-100 p-3">
+            <table 
+                id="table" 
+                data-toggle="table"
+                data-search="true"
+                data-filter-control="true" 
+                data-show-export="true"
+                data-click-to-select="true"
+                data-toolbar="#toolbar"
+                class="table-responsive mb-2">
+                <thead>
+                    <tr>
+                        {% for column in roleColumns %}
+                            {% if column == 'id'  %}
+                                <div data-field={{column}} hidden>{{column}}</div>
+                            {% elseif column == 'role_name' %}
+                                <th data-field={{column}} data-sortable="true">{{column}}</th>
+                            {% else %}
+                                <th data-field={{column}} data-sortable="false">{{column}}</th>
+                            {% endif %}
+                        {% endfor %}
+                        <th data-field='Actions' data-sortable="false">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set counter = 0 %}
+                    {% for role in roles %}
+                        <tr>
+                            {% for column in roleColumns %}
+                                {% if column == 'id' %}
+                                    <div name={{role[column]}} value={{role[column]}} hidden></div>
+                                {% elseif column == 'role_name' %}
+                                    <td class="font-Montserrat f-weight-400">{{role[column]}} </td>
+                                {% else %}
+                                    <td class="">
+                                    {% if role[column] == 1 %}
+                                        <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2">Enabled</small>
+                                    {% else %}
+                                        <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-10 border border-success border-opacity-10 rounded-2">Disabled</small>
+                                    {% endif %}
+                                    </td>
+                                {% endif %}
+                                
+                            {% endfor %}
+                            <td>
+                                <button type="button" class="btn button-accent font-Montserrat f-weight-400" data-bs-toggle="modal" data-bs-target="#editModal" data-row-id="{{role['id']}}" id="edit{{counter}}">
+                                    edit
+                                </button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeModal" data-row-id="{{role['id']}}" id="remove{{counter}}">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                                <script>
+                                    $('#edit{{counter}}').click(function(){
+                                        const filters = JSON.parse('{{ roles | json_encode | raw}}');
+
+                                        let index;
+                                        for(var i = 0; i < filters.length; i++) {
+                                            if (filters[i]['id'] === $(this).data('row-id')){
+                                                index = i;
+                                                break;
+                                            }
+                                        }
+                                        const currentRow = filters[index];
+                                        console.log(currentRow);
+
+                                        for(const [key, value] of Object.entries(currentRow)){
+                                            if(key === 'id'){
+                                                $('#edit-form-body').prepend(`
+                                                    <div class="form-outline mb-4" hidden>
+                                                        <input name="id" value="${value}"/>
+                                                    </div>
+                                                `)
+                                            }
+                                            else if(key === 'role_name'){
+                                                $('#edit-form-body').append(`
+                                                    <div class="form-outline mb-4">
+                                                        <input name="role_name" type="text" class="form-control" value="${value}" placeholder="${value}"/>
+                                                        <label class="form-label" for="form3Example3">${key}</label>
+                                                    </div>
+                                                `)
+                                            }
+                                            else{
+                                                if(value === '1'){
+                                                    $('#edit-form-body').append(`
+                                                        <div class="form-outline mb-4">
+                                                            <input class="form-check-input" type="checkbox" role="switch" checked name="${key}">
+                                                            <label class="form-check-label" for="approvedCheckbox">${key}</label>
+                                                        </div>
+                                                    `)                                                
+                                                }
+                                                else{
+                                                    $('#edit-form-body').append(`
+                                                        <div class="form-outline mb-4">
+                                                            <input class="form-check-input" type="checkbox" role="switch" unchecked name="${key}">
+                                                            <label class="form-check-label" for="approvedCheckbox">${key}</label>
+                                                        </div>
+                                                    `)  
+                                                }
+                                               
+                                            }
+                                        }
+                                    });
+                                </script>
+                                <script>
+                                    $('#remove{{counter}}').click(function() {
+                                        const row = JSON.parse('{{ roles | json_encode | raw}}');
+
+                                        let index;
+                                        for(var i = 0; i < row.length; i++) {
+                                            if (row[i]['id'] === $(this).data('row-id')){
+                                                index = i;
+                                                break;
+                                            }
+                                        }
+                                        const currentRow = row[index];
+                                        console.log(currentRow);
+                                        $('#remove-role-prompt').text(`Do you want to delete ${currentRow['role_name']}?`);
+                                        $('#remove-role-id').val(currentRow['id']);
+                                    });
+                                </script>
+                            </td>
+                        </tr>
+                        
+                    {% set counter = counter + 1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="button" class="btn button-accent font-Montserrat f-weight-400 mt-4" data-bs-toggle="modal" data-bs-target="#addModal" id="addModalButton">Add Role</button>
+            
+        </div>
+    </div>
+    
+    
+    {% include 'views/components/modals/roles/addModal.html' %}
+    {% include 'views/components/modals/roles/editModal.html' %}
+    {% include 'views/components/modals/roles/removeModal.html' %}
+{% endblock %}

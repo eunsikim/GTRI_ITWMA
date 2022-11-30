@@ -1,0 +1,44 @@
+<div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Role</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="roles" method="POST">
+                        {% for column in roleColumns %}
+                            {% if column != 'id' %}
+                                {% if column == 'role_name' %}
+                                        <div class="form-outline mb-4">
+                                            <input name="role_name" type="text" class="form-control" placeholder="Role Name"/>
+                                            <label class="form-label" for="form3Example3">{{column}}</label>
+                                        </div>
+                                    {% else %}
+                                        <div class="form-outline mb-4">
+                                            <input class="form-check-input" type="checkbox" role="switch" unchecked name="{{column}}">
+                                            <label class="form-check-label" for="approvedCheckbox">{{column}}</label>
+                                        </div>
+                                {% endif %}
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                     
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button name="add" value="add" type="submit" class="btn button-accent">Add Role</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# <script>
+    const addModalEl = document.getElementById('editModal');
+
+    addModalEl.addEventListener('hidden.bs.modal', event=>{
+        document.getElementById('add-form-body').innerHTML = "";
+    })
+</script> #}

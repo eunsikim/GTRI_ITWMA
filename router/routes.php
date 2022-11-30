@@ -12,6 +12,13 @@
     if(isset($_SESSION['user_roles']) && checkPrivilege('view_users', $_SESSION['user_roles'])){
         get('/users', './controllers/users.php');
     }
+    if(isset($_SESSION['user_roles']) && checkPrivilege('view_roles', $_SESSION['user_roles'])){
+        get('/roles', './controllers/roles.php');
+        post('/roles', './controllers/roles.php');
+    }
+
+
+    get('/profile', './controllers/profile.php');
 
     get('/t', './test.php');
     get('/t2', './test2.php');
@@ -28,7 +35,10 @@
     post('/remove', './php/users/remove.php');
     post('/add', './php/users/add.php');
 
+    post('/profile', './controllers/profile.php');
+
     // For GET or POST
     // The 404.php which is inside the views folder will be called
     // The 404.php has access to $_GET and $_POST
     any('/404','./controllers/404.php');
+

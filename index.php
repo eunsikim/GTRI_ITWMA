@@ -13,6 +13,7 @@ foreach($_SERVER['modules'] as $module){
         json_decode(file_get_contents($module.'/app.json'), true)['module_name'], 
         json_decode(file_get_contents($module.'/app.json'), true)['module_route'], 
         json_decode(file_get_contents($module.'/app.json'), true)['dashboard_path'], 
+        json_decode(file_get_contents($module.'/app.json'), true)['dashboard_controller_path'], 
         $module
     ));
 }

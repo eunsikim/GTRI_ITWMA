@@ -9,7 +9,7 @@
 
     echo $_SESSION['TWIG']->render('/views/mainTemplateExample.html', [
         'title' => 'Main',
-        'userName' => $_SESSION['user'],
+        'userName' => $_SESSION['current_user']['firstName'],
         'isLogged' => isLogged()
         ]) 
 ?>
