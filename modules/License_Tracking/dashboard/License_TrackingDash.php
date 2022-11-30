@@ -11,7 +11,7 @@
     $underLicensedCount = mysqli_fetch_assoc($resUnderLicensed);
     $inComplianceCount = mysqli_fetch_assoc($resInCompliance);
 
-    mysqli_close($conn);
+    // mysqli_close($conn);
 
     $widgetData['License_Tracking'] = array(
         'overLicensed' => $overLicensedCount['count'],
