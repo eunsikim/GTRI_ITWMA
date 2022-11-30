@@ -9,10 +9,20 @@
             </div>
             <div class="d-flex flex-row  flex-wrap justify-content-center align-items-start" style="">
                 {% for module in modules %}
-                    <div class="bg-secondaryCol flex-fill m-4 p-3" style="min-height: 300px; min-width:500px; border-radius:10px">
-                        {% include module.2 %}
+
+                    <div class="card shadow m-3">
+                        <a class="card-header font-Montserrat f-weight-700 color-primary" style="text-decoration: none;" href="{{module.1}}">{{module.0}}</a>
+
+                        <div class="card-body">
+                            {% include module.2 %}
+                        </div>
                     </div>
+
+                    {# <div class="bg-secondaryCol flex-fill m-4 p-4 shadow text-start 100vh" style="min-height: 300px; min-width:500px; border-radius:10px;">
+                        {% include module.2 %}
+                    </div> #}
                 {% endfor %}
+
             </div>
         </div>
     </div>
