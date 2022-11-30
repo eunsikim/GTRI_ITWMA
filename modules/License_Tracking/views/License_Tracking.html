@@ -3,123 +3,57 @@
 {% block content %}
     <div class="container-fluid rppit-mc-p1">
         <h1 class="color-accent font-Montserrat fw-bold display-5 mt-4 mb-4 ms-3">Licensing Tracking</h1>
-            <div class="d-flex mb-4 ms-3">
-                <form class="d-flex w-25" role="search">
-                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                </form>
-                <button class="btn btn-secondary dropdown-toggle btn-sm bg-accentCol text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height: 30px;">Filter</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Alphabetically A-Z</a></li>
-                        <li><a class="dropdown-item" href="#">Alphabetically Z-A</a></li>
-                        <li><a class="dropdown-item" href="#">Recent</a></li>
-                    </ul>
-            </div>
-            
             <div class="w-100 p-3" >
-                <a href="/views/New_License.html" class="align-items-end">Create New +</a>
-            <table class="table text-center shadow" >
+            <table
+                id="table"
+                data-toggle="table"
+                data-search="true"
+                data-filter-control="true" 
+                data-show-export="true"
+                data-click-to-select="true"
+                data-toolbar="#toolbar"
+                class="table text-center table-responsive" 
+            >
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Manufacturer</th>
-                        <th scope="col">Puch. Date</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Qty.</th>
-                        <th scope="col">Exp.</th>
-                        <th scope="col">Actions</th>
+                        <th data-field="softwareName" data-sortable="true" scope="col">Software Name</th>
+                        <th data-field="softwareVersion" data-sortable="true" scope="col">Software Version</th>
+                        <th data-field="totalPurchased" data-sortable="true" scope="col">Total Purchased</th>
+                        <th data-field="managedInstallations" data-sortable="true" scope="col">Managed Installations</th>
+                        <th data-field="remaining" data-sortable="true" scope="col">Remaining</th>
+                        <th data-field="complianceStatus" data-sortable="true" scope="col">Compliance Status</th>
+                        <th data-field="actions" data-sortable="false" scope="col">Actions</th>
+                        <th data-field="networkInstallations" data-sortable="true" scope="col">Network Installations</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr> 
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum</td>
-                        <td>Lorem Ipsum</td>
-                        <td>10/02/22</td>
-                        <td>Float</td>
-                        <td>1</td>
-                        <td>10/02/25</td>
-                        <td><Select><option value=" ">Select</option></Select></td>
-                    </tr> 
+                    {% for license in licenses %}
+                        <tr>
+                            <td class="font-Montserrat f-weigth-400">{{ license.name }}</td>
+                            <td class="font-Montserrat f-weigth-400">{{ license.version }}</td>
+                            <td class="font-Montserrat f-weigth-400">{{ license.totalPurchased }}</td>
+                            <td class="font-Montserrat f-weigth-400">{{ license.managedInstallations }}</td>
+                            <td class="font-Montserrat f-weigth-400">{{ license.totalPurchased - license.managedInstallations }}</td>
+                            <td class="font-Montserrat f-weigth-400">
+                                {% if license.complianceStatus == 'Under Licensed' %}
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2">{{license.complianceStatus}}</small>
+                                {% elseif license.complianceStatus == 'Over Licensed' %}
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-primary bg-primary bg-opacity-10 border border-success border-opacity-10 rounded-2">{{license.complianceStatus}}</small>
+                                {% else %}
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary bg-secondary bg-opacity-10 border border-success border-opacity-10 rounded-2">{{license.complianceStatus}}</small>
+                                {% endif %}
+                            </td>
+                            <td class="">
+                                <button type="button" class="btn button-accent font-Montserrat f-weight-400">
+                                    edit
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </td>
+                            <td class="font-Montserrat f-weigth-400">{{ license.networkInstallations }}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
         </table>
         <nav aria-label="Page navigation example">
