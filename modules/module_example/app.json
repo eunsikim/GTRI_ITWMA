@@ -1,0 +1,9 @@
+{
+    "module_name": "Module Example",
+    "module_route": "module_example",
+    "module_root": "./modules/module_example",
+    "dashboard_path": "./modules/module_example/dashboard/module_exampleDash.html",
+    "dashboard_controller_path": "./modules/module_example/dashboard/module_exampleDash.php",
+    "view_path": "/modules/module_example/views/module_example.html",
+    "migration_path": "%%PHINX_CONFIG_DIR%%/modules/module_example/migrations"
+}
